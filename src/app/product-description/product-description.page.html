@@ -1,0 +1,1170 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>productDescription</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content padding>
+    <!-- <div class="header">
+        <div class="container">
+          <div class="header-top">
+                <div class="logo">
+              <a href="index.html"><h6>Online Furnish</h6><h2>KALPTARU</h2><h6>Furniture</h6></a>
+             </div>
+             <div class="header_right">
+             <ul class="social">
+              <li><a href=""> <i class="fb"> </i> </a></li>
+              <li><a href=""><i class="tw"> </i> </a></li>
+              <li><a href=""><i class="utube"> </i> </a></li>
+              <li><a href=""><i class="pin"> </i> </a></li>
+              <li><a href=""><i class="instagram"> </i> </a></li>
+             </ul>
+            <div class="clearfix"></div>
+                </div>
+                <div class="clearfix"></div>
+           </div>
+           <div class="about_box" style="margin-left: 80%;">
+            <ul class="login">
+              <li class="login_text"><a href="login.html">Login</a></li>
+              <li class="wish"><a href="checkout.html">Wish List</a></li>
+              <div class='clearfix'></div>
+              </ul>
+              <div class="cart_bg">
+                    <ul class="cart">
+                     <a href="checkout.html">
+                    <h4><i class="cart_icon"> </i><p>Cart: <span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</p><div class="clearfix"> </div></h4>
+                 </a>
+      
+                   <div class="clearfix"> </div>
+                        </ul>
+                  </div>
+      
+            </div>
+          </div>
+          </div> -->
+      
+          <!-- header ends -->
+      
+        <!-- <div class="main" *ngFor="let item of productDescriptionarr">
+          <div class="content_box">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-3">
+                <div class="menu_box">
+                  <h3 class="menu_head">Menu</h3>
+                   <ul class="nav" *ngFor="let cat of categoryarr,let i=index">
+                    <li><a (click)="onClickCategory(i)">{{cat.category_name}}</a></li>
+                 </ul>
+                </div>
+      
+              </div>
+              <div class="col-md-9">
+                <div class="dreamcrub">
+                  <ul class="breadcrumbs">
+                          <li class="home">
+                             <a href="index.html" title="Go to Home Page">Home</a>&nbsp;
+                             <span>&gt;</span>
+                          </li>
+                <li class="home">
+                             <a href="about.html" title="Go to Home Page">About</a>&nbsp;
+                             <span>&gt;</span>
+                          </li>
+                          <li class="home">&nbsp;
+                             Beds
+                              <span>&gt;</span>&nbsp;
+                          </li>
+                      </ul>
+                      <ul class="previous">
+                        <li><a href="about.html">Back to Previous Page</a></li>
+                      </ul>
+                      <div class="clearfix"></div>
+               </div>
+               <div class="singel_right">
+                 <div class="labout span_1_of_a1">
+                 <div class="flexslider">
+                 <ul class="slides"> -->
+
+
+
+                  <!-- /COMMENTS -->
+
+
+
+
+
+
+                  <!-- <li data-thumb="../../assets/images/s1.jpg">
+                    <img src="../../assets/images/s1.jpg" />
+                  </li>
+                  <li data-thumb="../../assets/images/s2.jpg">
+                    <img src="../../assets/images/s2.jpg" />
+                  </li>
+                  <li data-thumb="../../assets/images/s3.jpg">
+                    <img src="../../assets/images/s3.jpg" />
+                  </li>
+                  <li data-thumb="../../assets/images/s4.jpg">
+                    <img src="../../assets/images/s4.jpg" />
+                  </li> -->
+
+
+
+                    <!-- COMMENTS END -->
+
+
+
+
+                  <!-- <img src="{{'http://localhost:3000/images/' + item.product_image}}" />
+                 </ul>
+                </div>
+              </div>
+              <div class="cont1 span_2_of_a1 simpleCart_shelfItem">
+              <h1>{{item.product_name}}</h1>
+              <ul class="rating">
+                 <li><a class="product-rate" href="#"> <label> </label></a> <span> </span></li>
+                 <li><a href="#">1 Review(s) Add Review</a></li>
+                 <button (click)="wishlist(item.product_id)">Add to wishlist </button>
+                 <div class="clearfix"></div>
+                </ul>
+                <div class="price_single">
+                <span class="reducedfrom">{{item.product_price + 160}}&nbsp;Rs.</span>
+                <span class="amount item_price actual">{{item.product_price}} &nbsp;Rs.</span><a href="#">click for offer</a>
+              </div>
+              <h3 class="quick">Quick Overview:</h3>
+              <p class="quick_desc">{{item.product_material}}</p>
+                <ul class="size">
+                <h3>Size</h3>
+                <input type="radio" value="6x7" [(ngModel)]="size">
+                <li><a href="#">6 x 7</a></li>
+                <input type="radio"  value="6.5x7" [(ngModel)]="size">
+                <li><a href="#">6.5 x 7</a></li>
+                <input type="radio"  value="7x7" [(ngModel)]="size">
+                <li><a href="#">7 x 7</a></li>
+                <input type="radio"  value="7.7x9" [(ngModel)]="size">
+                <li><a href="#">7.7 x 9</a></li>
+                <input type="radio"  value="11x8" [(ngModel)]="size">
+                <li><a href="#">11 x 8</a></li>
+                <input type="radio"  value="12x7" [(ngModel)]="size">
+                <li><a href="#">12 x 7</a></li>
+              </ul>
+      
+              <ul class="product-qty" >
+                 <span>Quantity:</span>
+                 <select [(ngModel)]="qty"  >
+                   <option>Select</option>
+                 <option>1</option>
+                 <option>2</option>
+                 <option>3</option>
+                 <option>4</option>
+                 <option>5</option>
+                 <option>6</option>
+                 </select>
+                </ul>
+                <div class="btn_form button item_add item_1">
+                 <form>
+                 <input type="submit" value="Add to Cart" title="" (click)="addtocart()">
+                </form>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+             </div>
+              <div classs=container style="border: 1px solid gray; ">
+                <h3 class="like" style="text-align: center;">Additional Information</h3>
+              <table>
+                <tr>
+                  <td><b>Title</b></td>
+                  <td><b>Description</b></td>
+                </tr>
+                <tr>
+                  <td><b>Height</b></td>
+                  <td>{{item.product_height}}</td>
+                </tr>
+                <tr>
+                    <td><b>Width</b></td>
+                    <td>{{item.product_width}}</td>
+                  </tr>
+                  <tr>
+                      <td><b>Weight</b></td>
+                      <td>{{item.product_weight}}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Warranty</b></td>
+                        <td>{{item.product_warranty}}</td>
+                      </tr>
+                      <tr>
+                          <td><b>Room Type</b></td>
+                          <td>{{item.product_Roomtype}}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Depth</b></td>
+                            <td>{{item.product_depth}}</td>
+                          </tr>
+      
+              </table>
+      
+              </div> -->
+                 <!-- <h3 class="like" style="padding-top: 40px;">You Might Also Like</h3> -->
+                 <!-- similarproducts -->
+                 <!-- <div class="row" >
+                  <div class="col-md-3" *ngFor="let item of similarproducts,let i=index">
+                    <div class="thumbnail">
+                      <td><img src="{{'http://localhost:3000/images/'+item.product_image}}" alt="image" height="100px" width="100px"></td>
+                      <div class="caption">
+                          <td><h3>{{item.product_name}}</h3></td><br>
+                        <td><h3>{{item.product_price}}</h3></td>
+                        <p><a  class="btn btn-primary" role="button"  (click)="viewDetails(item.product_id)">View Details</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+           </div>
+          </div>
+            </div>
+          <div class="container">
+            <div class="brands">
+              <ul class="brand_icons">
+      
+                <li><img src='../../assets/images/icon1.png' class="img-responsive" alt=""/></li>
+                <li><img src='../../assets/images/icon2.png' class="img-responsive" alt=""/></li>
+                <li><img src='../../assets/images/icon3.png' class="img-responsive" alt=""/></li>
+                <li><img src='../../assets/images/icon4.png' class="img-responsive" alt=""/></li>
+                <li class="last"><img src='../../assets/images/icon5.png' class="img-responsive" alt=""/></li>
+              </ul>
+            </div>
+            </div>
+            <div class="container">
+            <div class="instagram_top">
+              <div class="instagram text-center">
+                <h3>Our Collections</h3>
+              </div>
+              <ul class="instagram_grid">
+                <li><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="../../assets/images/i1.jpg" class="img-responsive"alt=""/></a></li>
+                <li><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="../../assets/images/i2.jpg" class="img-responsive" alt=""/></a></li>
+                <li><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="../../assets/images/i3.jpg" class="img-responsive" alt=""/></a></li>
+                <li><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="../../assets/images/i4.jpg" class="img-responsive" alt=""/></a></li>
+                <li><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="../../assets/images/i5.jpg" class="img-responsive" alt=""/></a></li>
+                <li class="last_instagram"><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="../../assets/images/i6.jpg" class="img-responsive" alt=""/></a></li>
+                <div class="clearfix"></div>
+                <div id="small-dialog1" class="mfp-hide">
+                  <div class="pop_up">
+                    <h4>A Sample Photo Stream</h4>
+                    <img src="../../assets/images/i_zoom.jpg" class="img-responsive" alt=""/>
+                  </div>
+                </div>
+              </ul>
+            </div>
+            <ul class="footer_social">
+              <li><a href="#"><i class="tw"> </i> </a></li>
+              <li><a href="#"> <i class="fb"> </i> </a></li>
+              <li><a href="#"><i class="pin"> </i> </a></li>
+              <div class="clearfix"></div>
+            </ul>
+            </div>
+          </div>
+          <div class="footer">
+          <div class="container">
+            <div class="footer-grid">
+              <h3>Category</h3>
+              <ul class="list1">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About us</a></li>
+                <li><a href="about.html">Eshop</a></li>
+                <li><a href="about.html">Features</a></li>
+                <li><a href="about.html">New Collections</a></li>
+                <li><a href="typo.html">Typo</a></li>
+                <li><a href="contact.html">Contact</a></li>
+              </ul>
+            </div>
+            <div class="footer-grid">
+              <h3>Our Account</h3>
+              <ul class="list1">
+                <li><a href="login.html">Your Account</a></li>
+                <li><a href="contact.html">Personal information</a></li>
+                <li><a href="contact.html">Addresses</a></li>
+                <li><a href="#">Discount</a></li>
+                <li><a href="checkout.html">Orders history</a></li>
+                <li><a href="about.html">Search Terms</a></li>
+              </ul>
+            </div>
+            <div class="footer-grid">
+              <h3>Our Support</h3>
+              <ul class="list1">
+                <li><a href="contact.html">Site Map</a></li>
+                <li><a href="about.html">Search Terms</a></li>
+                <li><a href="about.html">Advanced Search</a></li>
+                <li><a href="about.html">Mobile</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="contact.html">Mobile</a></li>
+                <li><a href="contact.html">Addresses</a></li>
+              </ul>
+            </div>
+            <div class="footer-grid">
+              <h3>Newsletter</h3>
+              <p class="footer_desc">Nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat</p>
+              <div class="search_footer">
+                <input type="text" class="text" value="Your Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Your Email';}">
+                <input type="submit" value="Subscribe">
+              </div>
+              <img src="../../assets/images/payment.png" class="img-responsive" alt=""/>
+            </div>
+             <div class="clearfix"> </div>
+          </div>
+        </div> -->
+      
+
+
+
+
+
+
+          <!-- NEW TEMPLATE -->
+
+
+
+          <!-- <div class="animsition"> -->
+
+              <!-- Header -->
+              <header class="header1">
+                <!-- Header desktop -->
+                <div class="container-menu-header">
+                  <div class="topbar">
+                    <div class="topbar-social">
+                      <a href="#" class="topbar-social-item fa fa-facebook"></a>
+                      <a href="#" class="topbar-social-item fa fa-instagram"></a>
+                      <a href="#" class="topbar-social-item fa fa-pinterest-p"></a>
+                      <a href="#" class="topbar-social-item fa fa-snapchat-ghost"></a>
+                      <a href="#" class="topbar-social-item fa fa-youtube-play"></a>
+                    </div>
+            
+                    <span class="topbar-child1">
+                      Free shipping for standard order over $100
+                    </span>
+            
+                    <div class="topbar-child2">
+                      <span class="topbar-email">
+                        fashe@example.com
+                      </span>
+            
+                      <div class="topbar-language rs1-select2">
+                        <select class="selection-1" name="time">
+                          <option>USD</option>
+                          <option>EUR</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+            
+                  <div class="wrap_header">
+                    <!-- Logo -->
+                    <a href="index.html" class="logo">
+                      <img src="../../assets/fashe-colorlib/images/icons/logo.png" alt="IMG-LOGO">
+                      
+                    </a>
+            
+                    <!-- Menu -->
+                    <div class="wrap_menu">
+                      <nav class="menu">
+                        <ul class="main_menu">
+                          <li>
+                            <a href="index.html">Home</a>
+                            <ul class="sub_menu">
+                              <li><a href="index.html">Homepage V1</a></li>
+                              <li><a href="home-02.html">Homepage V2</a></li>
+                              <li><a href="home-03.html">Homepage V3</a></li>
+                            </ul>
+                          </li>
+            
+                          <li>
+                            <a href="product.html">Shop</a>
+                          </li>
+            
+                          <li class="sale-noti">
+                            <a href="product.html">Sale</a>
+                          </li>
+            
+                          <li>
+                            <a href="cart.html">Features</a>
+                          </li>
+            
+                          <li>
+                            <a href="blog.html">Blog</a>
+                          </li>
+            
+                          <li>
+                            <a href="about.html">About</a>
+                          </li>
+            
+                          <li>
+                            <a href="contact.html">Contact</a>
+                          </li>
+                        </ul>
+                      </nav>
+                    </div>
+            
+                    <!-- Header Icon -->
+                    <div class="header-icons">
+                      <a href="#" class="header-wrapicon1 dis-block">
+                        <img src="../../assets/fashe-colorlib/images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
+                      </a>
+            
+                      <span class="linedivide1"></span>
+            
+                      <div class="header-wrapicon2">
+                        <img src="../../assets/fashe-colorlib/images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
+                        <span class="header-icons-noti">0</span>
+            
+                        <!-- Header cart noti -->
+                        <div class="header-cart header-dropdown">
+                          <ul class="header-cart-wrapitem">
+                            <li class="header-cart-item">
+                              <div class="header-cart-item-img">
+                                <img src="../../assets/fashe-colorlib/images/item-cart-01.jpg" alt="IMG">
+                              </div>
+            
+                              <div class="header-cart-item-txt">
+                                <a href="#" class="header-cart-item-name">
+                                  White Shirt With Pleat Detail Back
+                                </a>
+            
+                                <span class="header-cart-item-info">
+                                  1 x $19.00
+                                </span>
+                              </div>
+                            </li>
+            
+                            <li class="header-cart-item">
+                              <div class="header-cart-item-img">
+                                <img src="../../assets/fashe-colorlib/images/item-cart-02.jpg" alt="IMG">
+                              </div>
+            
+                              <div class="header-cart-item-txt">
+                                <a href="#" class="header-cart-item-name">
+                                  Converse All Star Hi Black Canvas
+                                </a>
+            
+                                <span class="header-cart-item-info">
+                                  1 x $39.00
+                                </span>
+                              </div>
+                            </li>
+            
+                            <li class="header-cart-item">
+                              <div class="header-cart-item-img">
+                                <img src="../../assets/fashe-colorlib/images/item-cart-03.jpg" alt="IMG">
+                              </div>
+            
+                              <div class="header-cart-item-txt">
+                                <a href="#" class="header-cart-item-name">
+                                  Nixon Porter Leather Watch In Tan
+                                </a>
+            
+                                <span class="header-cart-item-info">
+                                  1 x $17.00
+                                </span>
+                              </div>
+                            </li>
+                          </ul>
+            
+                          <div class="header-cart-total">
+                            Total: $75.00
+                          </div>
+            
+                          <div class="header-cart-buttons">
+                            <div class="header-cart-wrapbtn">
+                              <!-- Button -->
+                              <a href="cart.html" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+                                View Cart
+                              </a>
+                            </div>
+            
+                            <div class="header-cart-wrapbtn">
+                              <!-- Button -->
+                              <a href="#" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+                                Check Out
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            
+                <!-- Header Mobile -->
+                <div class="wrap_header_mobile">
+                  <!-- Logo moblie -->
+                  <a href="index.html" class="logo-mobile">
+                    <img src="../../assets/fashe-colorlib/images/icons/logo.png" alt="IMG-LOGO">
+                  </a>
+            
+                  <!-- Button show menu -->
+                  <div class="btn-show-menu">
+                    <!-- Header Icon mobile -->
+                    <div class="header-icons-mobile">
+                      <a href="#" class="header-wrapicon1 dis-block">
+                        <img src="../../assets/fashe-colorlib/images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
+                      </a>
+            
+                      <span class="linedivide2"></span>
+            
+                      <div class="header-wrapicon2">
+                        <img src="../../assets/fashe-colorlib/images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
+                        <span class="header-icons-noti">0</span>
+            
+                        <!-- Header cart noti -->
+                        <div class="header-cart header-dropdown">
+                          <ul class="header-cart-wrapitem">
+                            <li class="header-cart-item">
+                              <div class="header-cart-item-img">
+                                <img src="../../assets/fashe-colorlib/images/item-cart-01.jpg" alt="IMG">
+                              </div>
+            
+                              <div class="header-cart-item-txt">
+                                <a href="#" class="header-cart-item-name">
+                                  White Shirt With Pleat Detail Back
+                                </a>
+            
+                                <span class="header-cart-item-info">
+                                  1 x $19.00
+                                </span>
+                              </div>
+                            </li>
+            
+                            <li class="header-cart-item">
+                              <div class="header-cart-item-img">
+                                <img src="../../assets/fashe-colorlib/images/item-cart-02.jpg" alt="IMG">
+                              </div>
+            
+                              <div class="header-cart-item-txt">
+                                <a href="#" class="header-cart-item-name">
+                                  Converse All Star Hi Black Canvas
+                                </a>
+            
+                                <span class="header-cart-item-info">
+                                  1 x $39.00
+                                </span>
+                              </div>
+                            </li>
+            
+                            <li class="header-cart-item">
+                              <div class="header-cart-item-img">
+                                <img src="../../assets/fashe-colorlib/images/item-cart-03.jpg" alt="IMG">
+                              </div>
+            
+                              <div class="header-cart-item-txt">
+                                <a href="#" class="header-cart-item-name">
+                                  Nixon Porter Leather Watch In Tan
+                                </a>
+            
+                                <span class="header-cart-item-info">
+                                  1 x $17.00
+                                </span>
+                              </div>
+                            </li>
+                          </ul>
+            
+                          <div class="header-cart-total">
+                            Total: $75.00
+                          </div>
+            
+                          <div class="header-cart-buttons">
+                            <div class="header-cart-wrapbtn">
+                              <!-- Button -->
+                              <a href="cart.html" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+                                View Cart
+                              </a>
+                            </div>
+            
+                            <div class="header-cart-wrapbtn">
+                              <!-- Button -->
+                              <a href="#" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+                                Check Out
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+            
+                    <div class="btn-show-menu-mobile hamburger hamburger--squeeze">
+                      <span class="hamburger-box">
+                        <span class="hamburger-inner"></span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+            
+                <!-- Menu Mobile -->
+                <div class="wrap-side-menu" >
+                  <nav class="side-menu">
+                    <ul class="main-menu">
+                      <li class="item-topbar-mobile p-l-20 p-t-8 p-b-8">
+                        <span class="topbar-child1">
+                          Free shipping for standard order over $100
+                        </span>
+                      </li>
+            
+                      <li class="item-topbar-mobile p-l-20 p-t-8 p-b-8">
+                        <div class="topbar-child2-mobile">
+                          <span class="topbar-email">
+                            fashe@example.com
+                          </span>
+            
+                          <div class="topbar-language rs1-select2">
+                            <select class="selection-1" name="time">
+                              <option>USD</option>
+                              <option>EUR</option>
+                            </select>
+                          </div>
+                        </div>
+                      </li>
+            
+                      <li class="item-topbar-mobile p-l-10">
+                        <div class="topbar-social-mobile">
+                          <a href="#" class="topbar-social-item fa fa-facebook"></a>
+                          <a href="#" class="topbar-social-item fa fa-instagram"></a>
+                          <a href="#" class="topbar-social-item fa fa-pinterest-p"></a>
+                          <a href="#" class="topbar-social-item fa fa-snapchat-ghost"></a>
+                          <a href="#" class="topbar-social-item fa fa-youtube-play"></a>
+                        </div>
+                      </li>
+            
+                      <li class="item-menu-mobile">
+                        <a href="index.html">Home</a>
+                        <ul class="sub-menu">
+                          <li><a href="index.html">Homepage V1</a></li>
+                          <li><a href="home-02.html">Homepage V2</a></li>
+                          <li><a href="home-03.html">Homepage V3</a></li>
+                        </ul>
+                        <i class="arrow-main-menu fa fa-angle-right" aria-hidden="true"></i>
+                      </li>
+            
+                      <li class="item-menu-mobile">
+                        <a href="product.html">Shop</a>
+                      </li>
+            
+                      <li class="item-menu-mobile">
+                        <a href="product.html">Sale</a>
+                      </li>
+            
+                      <li class="item-menu-mobile">
+                        <a href="cart.html">Features</a>
+                      </li>
+            
+                      <li class="item-menu-mobile">
+                        <a href="blog.html">Blog</a>
+                      </li>
+            
+                      <li class="item-menu-mobile">
+                        <a href="about.html">About</a>
+                      </li>
+            
+                      <li class="item-menu-mobile">
+                        <a href="contact.html">Contact</a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+              </header>
+            
+              <!-- breadcrumb -->
+              <!-- <div class="bread-crumb bgwhite flex-w p-l-52 p-r-15 p-t-30 p-l-15-sm">
+                <a href="index.html" class="s-text16">
+                  Home
+                  <i class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i>
+                </a>
+            
+                <a href="product.html" class="s-text16">
+                  Women
+                  <i class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i>
+                </a>
+            
+                <a href="#" class="s-text16">
+                  T-Shirt
+                  <i class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i>
+                </a>
+            
+                <span class="s-text17">
+                  Boxy T-Shirt with Roll Sleeve Detail
+                </span>
+              </div> -->
+            
+              <!-- Product Detail -->
+              <div class="container bgwhite p-t-35 p-b-80" *ngFor="let item of productDescriptionarr">
+                <div class="flex-w flex-sb">
+                  <div class="w-size13 p-t-30 respon5">
+                    <div class="wrap-slick3 flex-sb flex-w">
+                      <div class="wrap-slick3-dots"></div>
+            
+                      <div class="slick3">
+                        <div class="item-slick3" data-thumb="../../assets/fashe-colorlib/images/thumb-item-01.jpg">
+                          <div class="wrap-pic-w">
+                            <img src="{{'http://localhost:3000/images/' + item.product_image}}" alt="IMG-PRODUCT">
+                          </div>
+                        </div>
+            
+                        <!-- <div class="item-slick3" data-thumb="../../assets/fashe-colorlib/images/thumb-item-02.jpg">
+                          <div class="wrap-pic-w">
+                            <img src="../../assets/fashe-colorlib/images/product-detail-02.jpg" alt="IMG-PRODUCT">
+                          </div>
+                        </div> -->
+            
+                        <!-- <div class="item-slick3" data-thumb="../../assets/fashe-colorlib/images/thumb-item-03.jpg">
+                          <div class="wrap-pic-w">
+                            <img src="../../assets/fashe-colorlib/images/product-detail-03.jpg" alt="IMG-PRODUCT">
+                          </div>
+                        </div> -->
+                      </div>
+                    </div>
+                  </div>
+            
+                  <div class="w-size14 p-t-30 respon5">
+                    <h4 class="product-detail-name m-text16 p-b-13">
+                      {{item.product_name}}
+                    </h4>
+            
+                    <span class="m-text17">
+                      ${{item.product_price}}
+                    </span>                 
+                      
+                    <p class="s-text8 p-t-10">
+                        EMI : {{emi}} &nbsp;Months <br>                        
+                      </p>
+                      
+                      <ion-list style="padding:10px;">
+                          <ion-item>
+                            <ion-range min="3" max="24" step="1" snaps="true" color="secondary" [(ngModel)]="emi" (ionChange)="onchangeEmi()"></ion-range>
+                          </ion-item>
+                        </ion-list>
+
+                        <p class="s-text8 p-t-10">
+                          Down Payment: {{downpayment}} <br>
+                          EMI TO PAY PER MONTH: {{emiPrice}}<br>
+                      </p>
+
+                    <p class="s-text8 p-t-10">
+                      Color: {{item.product_colour}}
+                    </p>
+            
+                    <!--  -->
+                    <div class="p-t-33 p-b-60">
+                      <div class="flex-m flex-w p-b-10">
+                        <div class="s-text15 w-size15 t-center">
+                          Size
+                        </div>
+            
+                        <div class="rs2-select2 rs3-select2 bo4 of-hidden w-size16">
+                          <select class="selection-2" name="size"  [(ngModel)]="size">
+                            <option>Choose an option</option>
+                            <option>4 X 8</option>
+                            <option>6 X 7</option>
+                            <option>12 X 7</option>
+                          </select>
+                        </div>
+                      </div>
+            
+                      <div class="flex-m flex-w">
+                        <div class="s-text15 w-size15 t-center">
+                          Color : {{item.product_colour}}
+                        </div>
+            
+                        <!-- <div class="rs2-select2 rs3-select2 bo4 of-hidden w-size16">
+                          <select class="selection-2" name="color">
+                            <option>Choose an option</option>
+                            <option>Gray</option>
+                            <option>Red</option>
+                            <option>Black</option>
+                            <option>Blue</option>
+                          </select>
+                        </div> -->
+                      </div>
+            
+                      <div class="flex-r-m flex-w p-t-10">
+                        <div class="w-size16 flex-m flex-w">
+                          <div class="flex-w bo5 of-hidden m-r-22 m-t-10 m-b-10">
+                            <button class="btn-num-product-down color1 flex-c-m size7 bg8 eff2" (click)="qtyDecrement()">
+                              <i class="fs-12 fa fa-minus" aria-hidden="true"></i>
+                            </button>
+            
+                            <input class="size8 m-text18 t-center num-product" type="number" name="num-product"   [(ngModel)]="qty">
+            
+                            <button class="btn-num-product-up color1 flex-c-m size7 bg8 eff2" (click)="qtyIncrement()">
+                              <i class="fs-12 fa fa-plus" aria-hidden="true"></i>
+                            </button>
+                          </div>
+            
+                          <div class="btn-addcart-product-detail size9 trans-0-4 m-t-10 m-b-10">
+                            <!-- Button -->
+                            <button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4" (click)="addtocart()">
+                              Add to Cart
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+            
+                    <div class="p-b-45">
+                      <!-- <span class="s-text8 m-r-35">Category Id: {{category_id}}</span>
+                      <span class="s-text8"></span> -->
+                      
+                    </div>
+            
+                    <!--  -->
+                    <!-- <div class="wrap-dropdown-content bo6 p-t-15 p-b-14 active-dropdown-content" (click)="onClickDescription()">
+                      <h5 class="js-toggle-dropdown-content flex-sb-m cs-pointer m-text19 color0-hov trans-0-4" aria-hidden="false">
+                        Description
+                        <i class="down-mark fs-12 color1 fa fa-minus dis-none" aria-hidden="false"></i>
+                        <i class="up-mark fs-12 color1 fa fa-plus" aria-hidden="false"></i>
+                      </h5>
+            
+                      <div class="dropdown-content dis-none p-t-15 p-b-23" *ngIf="descriptionflag">
+                        <p class="s-text8">
+                          Room Type: {{item.product_Roomtype}}
+                          Depth: {{item.product_depth}}
+                          Height: {{item.product_height}}
+                          Waaranty: {{item.product_warranty}}
+                        </p>
+                      </div>
+                    </div> -->
+                    <ion-card>
+                        <ion-card-header>
+                          <!-- <ion-card-subtitle></ion-card-subtitle> -->
+                          <ion-card-title style="padding:10px;text-align: center;"><b>Product Description</b></ion-card-title>
+                        </ion-card-header>
+                      
+                        <ion-card-content>
+                          <table style="padding:10px;text-align: center;">
+                              <tr>
+                                <td><b>Room Type</b></td>
+                                <td>{{item.product_Roomtype}}</td>
+                              </tr>
+                              <tr>
+                                <td><b>Depth </b></td>
+                                <td>{{item.product_depth}}</td>
+                              </tr>
+                              <tr>
+                                <td><b>Height</b></td>
+                                <td>{{item.product_height}}</td>
+                              </tr>
+                              <tr>
+                                <td><b>Warranty</b></td>
+                                <td>{{item.product_warranty}}</td>
+                              </tr>
+                              <tr>
+                                <td><b>Weight</b></td>
+                                <td>{{item.product_weight}}</td>
+                              </tr> 
+                              <tr>
+                                <td><b>Material</b></td>
+                                <td>{{item.product_material}}</td>
+                              </tr>
+                          </table>
+                            
+                        </ion-card-content>
+                      </ion-card>
+
+                      <ion-card>
+                          <ion-card-header>
+                            <!-- <ion-card-subtitle></ion-card-subtitle> -->
+                            <ion-card-title style="padding:10px;text-align: center;"><b>Offers %</b></ion-card-title>
+                          </ion-card-header>
+                        
+                          <ion-card-content>  <p>
+                           {{item.product_offer}}                              
+                          </p>                          
+                          </ion-card-content>
+                        </ion-card>
+
+                        <ion-card>
+                            <ion-card-header>
+                              <!-- <ion-card-subtitle></ion-card-subtitle> -->
+                              <ion-card-title style="padding:10px;text-align: center;"><b>Reviews</b></ion-card-title>
+                            </ion-card-header>
+                          
+                            <ion-card-content><p>
+                             
+                            </p>
+                            </ion-card-content>
+                          </ion-card>
+            
+                    <!-- <div class="wrap-dropdown-content bo7 p-t-15 p-b-14">
+                      <h5 class="js-toggle-dropdown-content flex-sb-m cs-pointer m-text19 color0-hov trans-0-4">
+                        Additional information
+                        <i class="down-mark fs-12 color1 fa fa-minus dis-none" aria-hidden="true"></i>
+                        <i class="up-mark fs-12 color1 fa fa-plus" aria-hidden="true"></i>
+                      </h5>
+            
+                      <div class="dropdown-content dis-none p-t-15 p-b-23">
+                        <p class="s-text8">
+                          Fusce ornare mi vel risus porttitor dignissim. Nunc eget risus at ipsum blandit ornare vel sed velit. Proin gravida arcu nisl, a dignissim mauris placerat
+                        </p>
+                      </div>
+                    </div> -->
+            
+                    <!-- <div class="wrap-dropdown-content bo7 p-t-15 p-b-14">
+                      <h5 class="js-toggle-dropdown-content flex-sb-m cs-pointer m-text19 color0-hov trans-0-4">
+                        Reviews (0)
+                        <i class="down-mark fs-12 color1 fa fa-minus dis-none" aria-hidden="true"></i>
+                        <i class="up-mark fs-12 color1 fa fa-plus" aria-hidden="true"></i>
+                      </h5>
+            
+                      <div class="dropdown-content dis-none p-t-15 p-b-23">
+                        <p class="s-text8">
+                          Fusce ornare mi vel risus porttitor dignissim. Nunc eget risus at ipsum blandit ornare vel sed velit. Proin gravida arcu nisl, a dignissim mauris placerat
+                        </p>
+                      </div>
+                    </div> -->
+                  </div>
+                </div>
+              </div>
+            
+            
+              <!-- Relate Product -->
+              <section class="relateproduct bgwhite p-t-45 p-b-138">
+                <div class="container">
+                  <div class="sec-title p-b-60">
+                    <h3 class="m-text5 t-center">
+                      Related Products
+                    </h3>
+                  </div>
+            
+                  <!-- Slide2 -->
+                  <div class="wrap-slick2">
+                    <div class="slick2">
+            
+                      <div class="item-slick2 p-l-15 p-r-15" *ngFor="let similar of similarproducts" style="padding:10px;">
+                        <!-- Block2 -->
+                        <div class="block2">
+                          <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
+                            <img src="{{'http://localhost:3000/images/' + similar.product_image}}" alt="{{similar.product_name}}" (click)="viewDetails(similar.product_id)">
+            
+                            <div class="block2-overlay trans-0-4">
+                              <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4" (click)="wishlist(similar.product_id)">
+                                <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
+                                <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
+                              </a>
+            
+                              <div class="block2-btn-addcart w-size1 trans-0-4">
+                                <!-- Button -->
+                                <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" (click)="addtocart(similar.product_id)">
+                                  Add to Cart
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+            
+                          <div class="block2-txt p-t-20" (click)="viewDetails(similar.product_id)">
+                            <a  class="block2-name dis-block s-text3 p-b-5">
+                              {{similar.product_name}}
+                            </a>
+            
+                            <span class="block2-price m-text6 p-r-5">
+                              ${{similar.product_price}}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+            
+                      
+            
+           
+                    </div>
+                  </div>
+            
+                </div>
+              </section>
+            
+            
+              <!-- Footer -->
+              <footer class="bg6 p-t-45 p-b-43 p-l-45 p-r-45">
+                <div class="flex-w p-b-90">
+                  <div class="w-size6 p-t-30 p-l-15 p-r-15 respon3">
+                    <h4 class="s-text12 p-b-30">
+                      GET IN TOUCH
+                    </h4>
+            
+                    <div>
+                      <p class="s-text7 w-size27">
+                        Any questions? Let us know in store at 8th floor, 379 Hudson St, New York, NY 10018 or call us on (+1) 96 716 6879
+                      </p>
+            
+                      <div class="flex-m p-t-30">
+                        <a href="#" class="fs-18 color1 p-r-20 fa fa-facebook"></a>
+                        <a href="#" class="fs-18 color1 p-r-20 fa fa-instagram"></a>
+                        <a href="#" class="fs-18 color1 p-r-20 fa fa-pinterest-p"></a>
+                        <a href="#" class="fs-18 color1 p-r-20 fa fa-snapchat-ghost"></a>
+                        <a href="#" class="fs-18 color1 p-r-20 fa fa-youtube-play"></a>
+                      </div>
+                    </div>
+                  </div>
+            
+                  <div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
+                    <h4 class="s-text12 p-b-30">
+                      Categories
+                    </h4>
+            
+                    <ul>
+                      <li class="p-b-9">
+                        <a href="#" class="s-text7">
+                          Men
+                        </a>
+                      </li>
+            
+                      <li class="p-b-9">
+                        <a href="#" class="s-text7">
+                          Women
+                        </a>
+                      </li>
+            
+                      <li class="p-b-9">
+                        <a href="#" class="s-text7">
+                          Dresses
+                        </a>
+                      </li>
+            
+                      <li class="p-b-9">
+                        <a href="#" class="s-text7">
+                          Sunglasses
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+            
+                  <div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
+                    <h4 class="s-text12 p-b-30">
+                      Links
+                    </h4>
+            
+                    <ul>
+                      <li class="p-b-9">
+                        <a href="#" class="s-text7">
+                          Search
+                        </a>
+                      </li>
+            
+                      <li class="p-b-9">
+                        <a href="#" class="s-text7">
+                          About Us
+                        </a>
+                      </li>
+            
+                      <li class="p-b-9">
+                        <a href="#" class="s-text7">
+                          Contact Us
+                        </a>
+                      </li>
+            
+                      <li class="p-b-9">
+                        <a href="#" class="s-text7">
+                          Returns
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+            
+                  <div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
+                    <h4 class="s-text12 p-b-30">
+                      Help
+                    </h4>
+            
+                    <ul>
+                      <li class="p-b-9">
+                        <a href="#" class="s-text7">
+                          Track Order
+                        </a>
+                      </li>
+            
+                      <li class="p-b-9">
+                        <a href="#" class="s-text7">
+                          Returns
+                        </a>
+                      </li>
+            
+                      <li class="p-b-9">
+                        <a href="#" class="s-text7">
+                          Shipping
+                        </a>
+                      </li>
+            
+                      <li class="p-b-9">
+                        <a href="#" class="s-text7">
+                          FAQs
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+            
+                  <div class="w-size8 p-t-30 p-l-15 p-r-15 respon3">
+                    <h4 class="s-text12 p-b-30">
+                      Newsletter
+                    </h4>
+            
+                    <form>
+                      <div class="effect1 w-size9">
+                        <input class="s-text7 bg6 w-full p-b-5" type="text" name="email" placeholder="email@example.com">
+                        <span class="effect1-line"></span>
+                      </div>
+            
+                      <div class="w-size2 p-t-20">
+                        <!-- Button -->
+                        <button class="flex-c-m size2 bg4 bo-rad-23 hov1 m-text3 trans-0-4">
+                          Subscribe
+                        </button>
+                      </div>
+            
+                    </form>
+                  </div>
+                </div>
+            
+                <div class="t-center p-l-15 p-r-15">
+                  <a href="#">
+                    <img class="h-size2" src="../../assets/fashe-colorlib/images/icons/paypal.png" alt="IMG-PAYPAL">
+                  </a>
+            
+                  <a href="#">
+                    <img class="h-size2" src="../../assets/fashe-colorlib/images/icons/visa.png" alt="IMG-VISA">
+                  </a>
+            
+                  <a href="#">
+                    <img class="h-size2" src="../../assets/fashe-colorlib/images/icons/mastercard.png" alt="IMG-MASTERCARD">
+                  </a>
+            
+                  <a href="#">
+                    <img class="h-size2" src="../../assets/fashe-colorlib/images/icons/express.png" alt="IMG-EXPRESS">
+                  </a>
+            
+                  <a href="#">
+                    <img class="h-size2" src="../../assets/fashe-colorlib/images/icons/discover.png" alt="IMG-DISCOVER">
+                  </a>
+            
+                  <div class="t-center s-text8 p-t-20">
+                    Copyright © 2018 All rights reserved. | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                  </div>
+                </div>
+              </footer>
+            
+            
+            
+              <!-- Back to top -->
+              <div class="btn-back-to-top bg0-hov" id="myBtn">
+                <span class="symbol-btn-back-to-top">
+                  <i class="fa fa-angle-double-up" aria-hidden="true"></i>
+                </span>
+              </div>
+            
+              <!-- Container Selection -->
+              <div id="dropDownSelect1"></div>
+              <div id="dropDownSelect2"></div>
+            
+              
+              
+
+            <!-- </div> -->
+
+
+
+
+
+
+
+</ion-content>

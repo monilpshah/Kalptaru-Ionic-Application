@@ -39,7 +39,32 @@
                 "input": "src/global.scss"
               }
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/cbpViewModeSwitch.js",
+              "src/assets/js/classie.js",
+              "src/assets/js/easyResponsiveTabs.js",
+              "src/assets/js/jquery.easydropdown.js",
+              "src/assets/js/jquery.flexisel.js",
+              "src/assets/js/jquery.flexslider.js",
+              "src/assets/js/jquery.magnific-popup.js",
+              "src/assets/js/jquery.min.js",
+              "src/assets/js/modernizr.custom.js",
+              "src/assets/js/simpleCart.min.js",
+              "src/assets/js/popup-with-zoom-anim.js",
+
+
+              "src/assets/fashe-colorlib/vendor/jquery/jquery-3.2.1.min.js",
+              "src/assets/fashe-colorlib/vendor/animsition/js/animsition.min.js",
+              "src/assets/fashe-colorlib/vendor/bootstrap/js/popper.js",
+              "src/assets/fashe-colorlib/vendor/bootstrap/js/bootstrap.min.js",
+              "src/assets/fashe-colorlib/vendor/select2/select2.min.js",
+              "src/assets/fashe-colorlib/js/slick-custom.js",
+              "src/assets/fashe-colorlib/vendor/countdowntime/countdowntime.js",
+              "src/assets/fashe-colorlib/vendor/lightbox2/js/lightbox.min.js",
+              "src/assets/fashe-colorlib/vendor/sweetalert/sweetalert.min.js",
+              "src/assets/fashe-colorlib/js/main.js",
+              "src/assets/cart.js"
+            ]
           },
           "configurations": {
             "production": {

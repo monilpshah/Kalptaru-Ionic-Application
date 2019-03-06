@@ -1,0 +1,84 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>signup</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content padding>
+
+    <div class="body"></div>
+		<div class="grad"></div>
+		<div class="header">
+			<div>Kalptaru<span> Furniture</span></div>
+		</div>
+    <br>
+		<div class="login">
+        <label
+        style=" width: 450px;
+            height: 30px;
+            background: transparent;
+            border: 0px solid rgba(255,255,255,0.6);
+            border-radius: 2px;
+            margin-left: 40%;
+            color: #fff;
+            font-family: 'Exo', sans-serif;
+            font-size: 42px;
+            font-weight: 400;
+            padding: 5px;">Sign Up</label><br><br><br>
+
+
+
+        <input type="email" placeholder="Enter your Email" name="user_email" [(ngModel)]="user_email" required  #user_email_menu="ngModel"><br>
+
+
+        <input type="password" placeholder="Password" name="user_password" [(ngModel)]="user_password" required #user_password_menu="ngModel"><br>
+
+
+        <input type="text" placeholder="username" name="user_name" [(ngModel)]="user_name" required  #user_name_menu="ngModel"><br>
+
+
+        <input type="number" placeholder="Mobile Number" name="user_mobileno" [(ngModel)]="user_mobileno" required minlength="10" maxlength="10" #user_mobileno_menu="ngModel"><br>
+
+
+        <input type="text" placeholder="City" name="user_city" [(ngModel)]="user_city" required  #user_city_menu="ngModel"><br>
+
+
+        <div class="form-group" >
+            <div class="container  form-control" style=" width: 450px;
+            height: 30px;
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.6);
+            border-radius: 2px;
+            color: #fff;
+            font-family: 'Exo', sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            padding: 5px;">
+            <input type="radio" [(ngModel)]="user_gender" value="Male" name="Gender" >Male &nbsp;&nbsp;&nbsp;
+            <input type="radio" [(ngModel)]="user_gender" value="Female" name="Gender">Female</div>
+          </div>
+
+
+          <textarea placeholder="Address" style=" width: 450px;
+          height: 50px;
+          background: transparent;
+          border: 1px solid rgba(255,255,255,0.6);
+          border-radius: 2px;
+          color: #fff;
+          font-family: 'Exo', sans-serif;
+          font-size: 16px;
+          font-weight: 400;
+          padding: 5px;" name="user_address" [(ngModel)]="user_address" required  #user_address_menu="ngModel"></textarea>
+
+
+        <input type="button" value="Sing UP" (click)="signup()" ><br><br><br>
+
+
+        <input type="button" value="Forgot password" >
+
+
+        <input type="button" value="Do you have an  account? login " (click)="login_navigate()" >
+
+      </div>
+
+</ion-content>

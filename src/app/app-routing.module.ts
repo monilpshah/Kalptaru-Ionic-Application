@@ -14,7 +14,16 @@ const routes: Routes = [
   {
     path: 'list',
     loadChildren: './list/list.module#ListPageModule'
-  }
+  },
+  { path: 'login',
+   loadChildren: './login/login.module#LoginPageModule' 
+  },
+  { path: 'signup',
+   loadChildren: './signup/signup.module#SignupPageModule' 
+  },
+  { path: 'productpage', loadChildren: './productpage/productpage.module#ProductpagePageModule' },
+  { path: 'product-description/:product_id', loadChildren: './product-description/product-description.module#ProductDescriptionPageModule' },
+  { path: 'checkout', loadChildren: './checkout/checkout.module#CheckoutPageModule' }
 ];
 
 @NgModule({

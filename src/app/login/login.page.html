@@ -1,0 +1,53 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons> -->
+    <!-- <ion-title>
+      Login
+    </ion-title> -->
+  <!-- </ion-toolbar>
+</ion-header> -->
+
+
+
+<ion-content padding>
+    <div class="body"></div>
+      <div class="grad"></div>
+      <div class="header">
+        <div>Kalptaru<span> Furniture</span></div>
+      </div>
+      <br>
+      <div class="login">
+  
+          <label
+          style=" width: 450px;
+              height: 30px;
+              background: transparent;
+              border: 0px solid rgba(255,255,255,0.6);
+              border-radius: 2px;
+              margin-left: 30%;
+              color: #fff;
+              font-family: 'Exo', sans-serif;
+              font-size: 42px;
+              font-weight: 400;
+              padding: 5px;">Log In</label><br><br><br>
+  
+  
+          <input type="text" placeholder="user Email Id" name="user" [(ngModel)]="user_email" required  ><br>
+  
+  
+          <input type="password" placeholder="password" name="password" [(ngModel)]="user_password" required><br>
+  
+  
+          <input type="button" value="Login" (click)="login()"><br><br><br>
+  
+  
+          <input type="button" value="Forgot password" >
+  
+  
+          <input type="button" value="Don't have an account? SignUp " (click)="signup_navigate()" >
+        </div>
+  
+  
+</ion-content>
