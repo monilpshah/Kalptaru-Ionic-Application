@@ -124,7 +124,9 @@ export class ProductDescriptionPage implements OnInit {
     this.product_price=this.productDescriptionarr[0].product_price;
     //console.log("Product Price is: "+this.product_price);
     this.downpayment=this.product_price*0.25;
-    this.emiPrice=(((this.product_price-this.downpayment)/3)*0.06)+((this.product_price-this.downpayment)/3);
+    this.emiPrice=(((this.product_price-this.downpayment)/this.emi)*0.06)+((this.product_price-this.downpayment)/3);
+    this.emiPrice=parseInt(this.emiPrice+"");
+    //console.log(this.emiPrice);
   }  
   qtyIncrement(){
     if(this.qty==10){

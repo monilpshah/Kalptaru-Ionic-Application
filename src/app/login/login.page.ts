@@ -3,6 +3,9 @@ import { LoginServiceService } from '../services/login-service.service';
 import { Router } from '@angular/router';
 import { login } from '../classes/login';
 import { loginbyemail } from '../classes/loginByEmail';
+import { LogoutService } from '../services/logout.service';
+import { AppComponent } from '../app.component';
+
 
 @Component({
   selector: 'app-login',
@@ -15,7 +18,7 @@ export class LoginPage implements OnInit {
   user_email: string;
   user_password: string;
   flag=0;
-  constructor(private _login:LoginServiceService,private _route:Router) { }
+  constructor(private _login:LoginServiceService,private _route:Router,private _logout:LogoutService) { }
 
   ngOnInit() {
   }
@@ -26,6 +29,7 @@ export class LoginPage implements OnInit {
         {
         localStorage.setItem('user_email',this.user_email);
         alert("Login success");
+        this._logout.flag=true;
         //this.flag=1;
         this._route.navigate(['productpage']);
         }

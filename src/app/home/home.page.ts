@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  ngOnInit() {
+    //localStorage.setItem("user_email",null);
+    
+  }
 
 }

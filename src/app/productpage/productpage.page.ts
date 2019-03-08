@@ -4,7 +4,6 @@ import { product } from '../classes/product';
 import { category } from '../classes/category';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
-import * as $ from "jquery";
 import { CartService } from '../services/cart.service';
 import { WishlistService } from '../services/wishlist.service';
 import { cart } from '../classes/cart';

@@ -23,7 +23,9 @@ const routes: Routes = [
   },
   { path: 'productpage', loadChildren: './productpage/productpage.module#ProductpagePageModule' },
   { path: 'product-description/:product_id', loadChildren: './product-description/product-description.module#ProductDescriptionPageModule' },
-  { path: 'checkout', loadChildren: './checkout/checkout.module#CheckoutPageModule' }
+  { path: 'checkout', loadChildren: './checkout/checkout.module#CheckoutPageModule' },
+  { path: 'logout', loadChildren: './logout/logout.module#LogoutPageModule' },
+  { path: 'barcodescanner', loadChildren: './barcodescanner/barcodescanner.module#BarcodescannerPageModule' }
 ];
 
 @NgModule({
