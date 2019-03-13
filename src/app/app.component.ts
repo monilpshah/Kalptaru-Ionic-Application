@@ -23,11 +23,11 @@ export class AppComponent {
       url: '/list',
       icon: 'list'
     },    
-    // {
-    //   title: 'Login',
-    //   url: '/login',
-    //   icon: 'list'
-    // },
+    {
+      title: 'Wishlist',
+      url: '/wishlist',
+      icon: 'list'
+    },
     {
       title: 'Signup',
       url: '/signup',
@@ -40,6 +40,11 @@ export class AppComponent {
     },{
       title: 'Barcode',
       url: '/barcodescanner',
+      icon: 'list'
+    },
+    {
+      title: 'Menu',
+      url: '/menu',
       icon: 'list'
     }
   ];

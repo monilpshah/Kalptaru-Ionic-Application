@@ -63,7 +63,10 @@
               "src/assets/fashe-colorlib/vendor/lightbox2/js/lightbox.min.js",
               "src/assets/fashe-colorlib/vendor/sweetalert/sweetalert.min.js",
               "src/assets/fashe-colorlib/js/main.js",
-              "src/assets/cart.js"
+              "src/assets/cart.js",
+              "src/assets/menujs.js",
+              "node_modules/jquery/dist/jquery.min.js",
+              "src/assets/menujs.js"
             ]
           },
           "configurations": {

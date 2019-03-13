@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Wishlist
+    </ion-title>    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+
+    <h1>Cart</h1>
+
+    <div class="shopping-cart">
+    
+      <div class="column-labels">
+        <label class="product-image">Image</label>
+        <label class="product-details">Product</label>
+        <label class="product-price">Price</label>
+        <label class="product-quantity">Quantity</label>
+        <label class="product-removal">Remove</label>
+        <label class="product-line-price">Total</label>
+      </div>
+    
+      <div class="product" *ngFor="let item of productdetails,let i = index">
+        <div class="product-image">
+          <img src="{{'http://localhost:3000/images/'+ item.product_image}}" alt="{{item.product_name}}">
+        </div>
+        <div class="product-details">
+          <div class="product-title">{{item.product_name}}</div>
+          <p class="product-description">{{item.product_material}}</p>
+        </div>
+        <div class="product-price">{{item.product_price}}</div>
+        <div class="product-quantity">
+          <!-- <input type="number" value="{{cartarr[i].quantity}}" min="1"> -->
+        </div>
+        <div class="product-removal">
+          <button class="remove-product" (click)="deletecart()">
+            Remove
+          </button>
+        </div>
+      </div>
+</div>
+
+
+</ion-content>
+<ion-footer style="background: transparent; background-color: transparent;padding-left: 30px;">
+  <ion-row>
+    <ion-col><ion-icon name="arrow-dropleft-circle"></ion-icon></ion-col>
+    <ion-col><ion-icon name="arrow-dropright-circle"></ion-icon></ion-col>
+    <ion-col><ion-icon name="apps"></ion-icon></ion-col>
+    <ion-col><ion-icon name="person"></ion-icon></ion-col>
+  </ion-row>
+    
+</ion-footer>

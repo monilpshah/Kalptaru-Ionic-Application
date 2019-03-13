@@ -37,6 +37,10 @@ export class ProductDescriptionPage implements OnInit {
 
   constructor(private _product:ProductService,private _productDescription:ProductDescriptionService,private _route:Router,private _acroute:ActivatedRoute,private _addtocart:CartService,private _wishlist:WishlistService) { }
 
+  slideOpts = {
+    effect: 'flip'
+  }
+
   ngOnInit() {
     this.user_name=localStorage.getItem('user_name');
     this.product_id=this._acroute.snapshot.params['product_id'];

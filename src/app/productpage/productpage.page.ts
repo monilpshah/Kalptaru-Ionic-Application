@@ -3,11 +3,14 @@ import { ProductService } from '../services/product.service';
 import { product } from '../classes/product';
 import { category } from '../classes/category';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MenuController } from '@ionic/angular';
+import { MenuController, NavController } from '@ionic/angular';
 import { CartService } from '../services/cart.service';
 import { WishlistService } from '../services/wishlist.service';
 import { cart } from '../classes/cart';
 import { wishlist } from '../classes/wishlist';
+import * as $ from 'jquery';
+import { IonInfiniteScroll } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-productpage',
@@ -38,14 +41,16 @@ export class ProductpagePage implements OnInit {
   size:string="4x8";
   qty:number=1;
   user_name:string;
-  index:number;
+  index:string;
   product_offer:string;
+  sort:string;
 
- constructor(private _product:ProductService,private _acroute:ActivatedRoute,private _route:Router,private _addtocart:CartService,private _wishlist:WishlistService) { }
+  
+ constructor(private _product:ProductService,private _acroute:ActivatedRoute,private _route:Router,private _addtocart:CartService,private _wishlist:WishlistService,public navCtrl: NavController) { }
 
  ngOnInit() {
   this.user_name=localStorage.getItem('user_email');
-  console.log(this.user_name);
+  //console.log(this.user_name);
   //  this.category_id=this._acroute.snapshot.params['category_id'];
   //  //this.category_id=101;
   //  this._product.productByCategoryId(this.category_id).subscribe(
@@ -68,6 +73,7 @@ export class ProductpagePage implements OnInit {
    );
  }
  onClickCategory(index){
+   console.log(index);
    this.category_id=this.categoryarr[index].category_id;
    //console.log(this.category_id);
    this._product.productByCategoryId(this.category_id).subscribe(
@@ -102,10 +108,14 @@ export class ProductpagePage implements OnInit {
    this._wishlist.addtowishlist(new wishlist(product_id,this.user_name)).subscribe(
      (data:any)=>{
        console.log(data);
-      alert("Successfully added to the cart");
+      alert("Successfully added to the Wishlist");
       
      }
    );
  }
+ searchclick(){
+   this._route.navigate(['/searchproduct']);
+ } 
+  
  
 }

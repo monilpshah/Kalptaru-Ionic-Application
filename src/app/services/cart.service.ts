@@ -19,7 +19,8 @@ export class CartService {
     return this._http.get(this.url+user_name);
   }
   deletecart(item:deletecart){
-    let body=JSON.stringify(item);
+    console.log("delete cart: "+item);
+    // let body=JSON.stringify(item);
     let head1=new HttpHeaders().set('Content-Type','application/json');
     return this._http.delete(this.url+item.user_name+"/"+item.product_id,{headers:head1});
   }

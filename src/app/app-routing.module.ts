@@ -25,7 +25,12 @@ const routes: Routes = [
   { path: 'product-description/:product_id', loadChildren: './product-description/product-description.module#ProductDescriptionPageModule' },
   { path: 'checkout', loadChildren: './checkout/checkout.module#CheckoutPageModule' },
   { path: 'logout', loadChildren: './logout/logout.module#LogoutPageModule' },
-  { path: 'barcodescanner', loadChildren: './barcodescanner/barcodescanner.module#BarcodescannerPageModule' }
+  { path: 'barcodescanner', loadChildren: './barcodescanner/barcodescanner.module#BarcodescannerPageModule' },
+  { path: 'payment-gateway', loadChildren: './payment-gateway/payment-gateway.module#PaymentGatewayPageModule' },
+  { path: 'menu', loadChildren: './menu/menu.module#MenuPageModule' },
+  { path: 'callback', loadChildren: './callback/callback.module#CallbackPageModule' },
+  { path: 'searchproduct', loadChildren: './searchproduct/searchproduct.module#SearchproductPageModule' },
+  { path: 'wishlist', loadChildren: './wishlist/wishlist.module#WishlistPageModule' }
 ];
 
 @NgModule({
