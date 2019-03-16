@@ -17,22 +17,23 @@
     </ion-toolbar>
   </ion-header>
 
-<ion-content padding>
+<ion-content padding class="cards-bg scrollbar">
     <ion-searchbar   (ionChange)="chagedItem(searchedItem)" [(ngModel)]="searchedItem" placeholder="Search Products" ></ion-searchbar>
     <!-- <ion-list>
       <ion-item *ngFor="let item of productarr" (click)="onClickProduct(item.product_id)">
         {{ item.product_name }}
       </ion-item>
     </ion-list> -->
-    <ion-card>
+    <ion-card class="cards-list-demo">
       <ion-card-header>
-        Explore Nearby
+        Products
       </ion-card-header>    
-      <ion-list>
-        <button ion-item *ngFor="let item of searcharr" (click)="onClickProduct(item.product_id)">
-          <ion-icon name="cart" item-start></ion-icon>          
+      <ion-list *ngFor="let item of searcharr">
+        <button ion-item  (click)="onClickProduct(item.product_id)">
+          <ion-icon name="albums" item-start></ion-icon>          
           {{item.product_name}}
-        </button>       
+          <br>
+        </button>
       </ion-list>
     </ion-card>
 

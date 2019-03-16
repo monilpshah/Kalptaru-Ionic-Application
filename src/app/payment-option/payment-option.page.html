@@ -1,0 +1,49 @@
+<ion-header>
+		<ion-toolbar>
+			<ion-buttons slot="start">
+				<ion-menu-button></ion-menu-button>
+			</ion-buttons>
+			<ion-title>
+				Payment Option
+			</ion-title>
+			
+		</ion-toolbar>
+	</ion-header>
+
+<ion-content padding>
+  <ion-list-header>Choose Payment Option</ion-list-header>
+  <div style="width:100%;font-family: Georgia, 'Times New Roman', Times, serif;font-size: 20px;">
+    EMI
+    <input type="radio" value="emi" name="paymentOption" [(ngModel)]="paymentOption">
+  </div>
+  <div *ngIf="paymentOption=='emi'">
+
+      <p class="s-text8 p-t-10">
+          <b>EMI Calculation: </b><br>
+            EMI : ₹{{emi}} &nbsp;Months <br>                        
+          </p>
+     
+     <ion-list style="width:100%;padding: 10px;">
+        <ion-item>
+          <ion-range min="3" max="24" step="1" snaps="true" color="secondary" [(ngModel)]="emi" (ionChange)="onchangeEmi()"></ion-range>
+        </ion-item>
+      </ion-list>
+
+      <p class="s-text8 p-t-10" style="padding: 10px;">
+          EMI TO PAY PER MONTH: ₹{{emiPrice}}<br>
+          Down Payment: ₹{{downpayment}} <br>
+      </p>
+  </div>
+  <div style="width:100%;font-family: Georgia, 'Times New Roman', Times, serif;font-size: 20px;">
+      Rent
+      <input type="radio" value="rent" name="paymentOption" [(ngModel)]="paymentOption">
+    </div>
+    <div style="width:100%;font-family: Georgia, 'Times New Roman', Times, serif;font-size: 20px;">
+        COD
+        <input type="radio" value="cod" name="paymentOption" [(ngModel)]="paymentOption">
+      </div>
+
+
+      <button class="checkoutButton" (click)="continue()">Continue to Payment</button>
+      <button class="checkoutButton" (click)="paytm()">PayTM</button>
+</ion-content>

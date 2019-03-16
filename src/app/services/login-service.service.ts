@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { login } from '../classes/login';
-import { loginbyemail } from '../classes/loginByEmail';
+
 
 @Injectable({
   providedIn: 'root'
@@ -19,8 +19,8 @@ export class LoginServiceService {
     return this._http.post(this.url,body,{headers:head1});
   }
 
-  loginByEmail(item:loginbyemail){
-    console.log(item);
+  loginByEmail(item:login){
+    //console.log(item);
     let body=JSON.stringify(item);
     let head1=new HttpHeaders().set('Content-Type','application/json');
     return this._http.post(this.url1,body,{headers:head1});

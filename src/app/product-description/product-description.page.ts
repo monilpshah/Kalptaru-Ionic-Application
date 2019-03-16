@@ -6,8 +6,10 @@ import { ProductDescriptionService } from '../services/product-description.servi
 import { ActivatedRoute, Router } from '@angular/router';
 import { CartService } from '../services/cart.service';
 import { cart } from '../classes/cart';
+import { checkRepeatProduct } from '../classes/checkRepeatProduct';
 import { WishlistService } from '../services/wishlist.service';
 import { wishlist } from '../classes/wishlist';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-product-description',
@@ -33,16 +35,17 @@ export class ProductDescriptionPage implements OnInit {
   emiPrice:number;
   downpayment:number;
   product_price:number;
+  rent:number=0;
 
 
-  constructor(private _product:ProductService,private _productDescription:ProductDescriptionService,private _route:Router,private _acroute:ActivatedRoute,private _addtocart:CartService,private _wishlist:WishlistService) { }
+  constructor(private _product:ProductService,private _productDescription:ProductDescriptionService,private _route:Router,private _acroute:ActivatedRoute,private _addtocart:CartService,private _wishlist:WishlistService,public toastCtrl:ToastController) { }
 
   slideOpts = {
     effect: 'flip'
   }
 
   ngOnInit() {
-    this.user_name=localStorage.getItem('user_name');
+    this.user_name=localStorage.getItem('user_email');
     this.product_id=this._acroute.snapshot.params['product_id'];
     //menu category
     this._product.getAllCategory().subscribe(
@@ -59,6 +62,7 @@ export class ProductDescriptionPage implements OnInit {
       this.downpayment=this.product_price*0.25;
       this.emiPrice=(((this.product_price-this.downpayment)/3)*0.06)+((this.product_price-this.downpayment)/3);
                    //console.log(data[0].product_Roomtype);
+                   this.rent=this.product_price*0.05;
         }
       );
       //get similar products
@@ -86,12 +90,23 @@ export class ProductDescriptionPage implements OnInit {
     );
   }
   addtocart(){
-    this._addtocart.addtocart(new cart(this.product_id,this.size,this.qty,this.user_name,"CASH")).subscribe(
+    this._addtocart.checkRepeatProduct(new checkRepeatProduct(this.product_id,this.user_name)).subscribe(
       (data:any)=>{
-        alert("Successfully added to the cart");
-        this._route.navigate(["/checkout"]);
+        if(data.length==1){
+          alert("already added.");
+          this._route.navigate(["/checkout"]);
+        }
+        else {
+          this._addtocart.addtocart(new cart(this.product_id,this.size,this.qty,this.user_name,"CASH")).subscribe(
+            (data:any)=>{
+              alert("Successfully added to the cart");
+              this._route.navigate(["/checkout"]);
+            }
+          );
+        }
       }
     );
+    
   }
   wishlist(product_id){
     this._wishlist.addtowishlist(new wishlist(product_id,this.user_name)).subscribe(
@@ -149,5 +164,14 @@ export class ProductDescriptionPage implements OnInit {
       this.qty--;
     }
   }
-  
+  async presentToast() {
+    const toast = await this.toastCtrl.create({
+      message: "Login Successful.",
+      cssClass: "toast-scheme ",
+      showCloseButton: true,
+      // closeButtonText: "OK",
+      position: 'bottom'
+    });
+    toast.present();
+  }  
 }

@@ -1,6 +1,6 @@
 export class wishlist{
-  constructor(public product_id:number,
-    public user_name:string
+  constructor(public fk_product_id:number,
+    public fk_user_email:string
     ){}
 
 }

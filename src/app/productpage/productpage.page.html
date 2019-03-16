@@ -6,25 +6,27 @@
 			
 				<ion-grid>
 				<ion-row>
-						<ion-title>
+						<!-- <ion-title>
 					<ion-col>Products</ion-col>
-				</ion-title>
-					<ion-col></ion-col>
-					<ion-col><ion-icon name="search"  (click)="searchclick()" style="height: 20px;width:30px;padding-top: 15px;padding-left:30%;"></ion-icon></ion-col>
-					<ion-col></ion-col>
-					<ion-col>
-							<div style="padding-left: 10%;">
-									<ion-item >
+				</ion-title> -->
+					<!-- <ion-col></ion-col> -->
+					<!-- <ion-col><ion-icon name="search"  (click)="searchclick()" style="height: 20px;width:30px;padding-top: 15px;margin-left:90%;"></ion-icon></ion-col> -->
+					<ion-searchbar style="width:65%;" (click)="searchclick()"></ion-searchbar>
+					
+					
+							<div>
+									<ion-item class=scrollbar>
 											<ion-icon name="grid"></ion-icon>
 											<ion-select [(ngModel)]="index" submitText="Okay" cancelText="Cancel" (ionChange)="onClickCategory()">
 												<div *ngFor="let item of categoryarr,let i=index">
-											  <ion-select-option value="{{item.category_name}}" >{{item.category_name}}</ion-select-option>
+											  <ion-select-option value="{{item.category_name}}" >{{item.category_name}}</ion-select-option>											  
 											</div>
+											<ion-select-option value="all">ALL</ion-select-option>
 											</ion-select>
 										  </ion-item>
 								</div>
 
-					</ion-col>
+					
 				</ion-row>
 			</ion-grid>
 				
@@ -45,7 +47,7 @@
 						<ion-icon name="heart-empty" style="float: right;height: 20px;width:30px;padding-right: 10%;" (click)="addToWishlist(item.product_id)"></ion-icon>
 						</ion-card-title>
 						<ion-card-subtitle > {{item.product_price}}
-								<button  (click)="addToCart()" style="float: right;height: 20px;width:30px;padding-right: 10%;"><ion-icon name="cart" style="float: right;height: 20px;width:30px;padding-right: 10%;"></ion-icon></button>
+								<button  (click)="addToCart(item.product_id)" style="float: right;height: 20px;width:30px;padding-right: 10%;"><ion-icon name="cart" style="float: right;height: 20px;width:30px;padding-right: 10%;"></ion-icon></button>
 						</ion-card-subtitle>					  
 					</ion-card-content>
 					</ion-card> 			

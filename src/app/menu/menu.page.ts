@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
-import { NavController } from '@ionic/angular';
+import { NavController, ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-menu',
@@ -9,7 +9,7 @@ import { NavController } from '@ionic/angular';
 })
 export class MenuPage implements OnInit {
 
-  constructor( private navCtrl:NavController) { }
+  constructor( private navCtrl:NavController,public toastCtrl:ToastController) { }
 
   ngOnInit() {
    
@@ -20,5 +20,14 @@ export class MenuPage implements OnInit {
       this.navCtrl.pop();
     console.log('Click on button Test Console Log');
  }
-
+ async presentToast() {
+  const toast = await this.toastCtrl.create({
+    message: "Login Successful.",
+    cssClass: "toast-scheme ",
+    showCloseButton: true,
+    // closeButtonText: "OK",
+    position: 'bottom'
+  });
+  toast.present();
+}
 }

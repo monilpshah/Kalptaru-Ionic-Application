@@ -1,18 +1,16 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>
-      Wishlist
-    </ion-title>    
-  </ion-toolbar>
-</ion-header>
+		<ion-toolbar>
+			<ion-buttons slot="start">
+				<ion-menu-button></ion-menu-button>
+			</ion-buttons>
+			<ion-title>
+				Wishlist
+			</ion-title>
+			
+		</ion-toolbar>
+	</ion-header>
 
 <ion-content padding>
-
-
-    <h1>Cart</h1>
 
     <div class="shopping-cart">
     
@@ -38,7 +36,7 @@
           <!-- <input type="number" value="{{cartarr[i].quantity}}" min="1"> -->
         </div>
         <div class="product-removal">
-          <button class="remove-product" (click)="deletecart()">
+          <button class="remove-product" (click)="deletecart(item.product_id,i)">
             Remove
           </button>
         </div>

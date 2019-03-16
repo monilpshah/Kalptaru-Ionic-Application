@@ -43,9 +43,9 @@ $font-bold: 'HelveticaNeue-Medium', 'Helvetica Neue Medium';
 
 
 /* Apply dollar signs */
-.product .product-price:before, .product .product-line-price:before, .totals-value:before {
-  content: '$';
-}
+// .product .product-price:before, .product .product-line-price:before, .totals-value:before {
+//    content: '$';
+// }
 
 
 /* Body/Header stuff */
@@ -161,14 +161,24 @@ label {
   border: 0;
   margin-top: 20px;
   padding: 3px 12px;
-  background-color: rgb(60, 29, 196);
+  background-color:white;
+  color: #fff;
+  font-size: 25px;
+  border-radius: 3px;
+}
+.checkoutButton {
+  float: right;
+  border: 0;
+  margin-top: 20px;
+  padding: 3px 12px;
+  background-color:#494;
   color: #fff;
   font-size: 25px;
   border-radius: 3px;
 }
 
-.checkout:hover {
-  background-color: #494;
+.checkoutButton:hover {
+  background-color: burlywood;
 }
 
 /* Make adjustments for tablet */
@@ -241,7 +251,7 @@ label {
   }
   
   .product .product-line-price:before {
-    content: 'Item Total: $';
+    content: 'Item Total:';
   }
   
   .totals {

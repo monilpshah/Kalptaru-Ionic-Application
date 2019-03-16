@@ -19,14 +19,14 @@ export class AppComponent {
       icon: 'home'
     },
     {
-      title: 'List',
-      url: '/list',
-      icon: 'list'
-    },    
-    {
       title: 'Wishlist',
       url: '/wishlist',
-      icon: 'list'
+      icon: 'heart'
+    },
+    {
+      title: 'Cart',
+      url: '/checkout',
+      icon: 'cart'
     },
     {
       title: 'Signup',
@@ -34,18 +34,19 @@ export class AppComponent {
       icon: 'list'
     },
     {
-      title: 'Cart',
-      url: '/checkout',
-      icon: 'list'
-    },{
-      title: 'Barcode',
-      url: '/barcodescanner',
-      icon: 'list'
+      title: 'My Profile',
+      url: '/my-profile',
+      icon: 'contact'
     },
     {
-      title: 'Menu',
-      url: '/menu',
-      icon: 'list'
+      title: 'Change Password',
+      url: '/change-password',
+      icon: 'hand'
+    },
+    {
+      title: 'Forgot Password',
+      url: '/forgot-password',
+      icon: 'at'
     }
   ];
 
@@ -57,13 +58,9 @@ export class AppComponent {
   ) {
     this.initializeApp();
       
-        this.appPages.push(new apppages('Login','/login','list'));         
-      // if(_logoutservice.flag=true){
-        this.appPages.push(new apppages('Logout','/logout','list'));
-        //console.log(localStorage.getItem('user_email'));
-      //   this.initializeApp();
-      //   this.appPages.splice(5);
-      // }
+        this.appPages.push(new apppages('Login','/login','log-in'));         
+        this.appPages.push(new apppages('Logout','/logout','log-out'));
+
     
   }
 

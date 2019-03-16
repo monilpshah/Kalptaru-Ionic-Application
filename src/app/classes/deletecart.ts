@@ -1,6 +1,6 @@
 export class deletecart{
-  constructor(public product_id:number,
-    public user_name:string
+  constructor(public fk_user_email:string,
+    public fk_product_id:number
     ){}
 
 }

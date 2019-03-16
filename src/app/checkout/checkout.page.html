@@ -1,14 +1,16 @@
 <ion-header>
-    <ion-toolbar>
-      <ion-button slot="start" >
-        <ion-menu-button color="light"></ion-menu-button>
-      </ion-button>
-      <ion-title style="text-align: center">Checkout</ion-title>
-    </ion-toolbar>
-  </ion-header>
+		<ion-toolbar>
+			<ion-buttons slot="start">
+				<ion-menu-button></ion-menu-button>
+			</ion-buttons>
+			<ion-title>
+				Cart
+			</ion-title>
+			
+		</ion-toolbar>
+	</ion-header>
 
 <ion-content padding>
-       <h1>Cart</h1>
 
 <div class="shopping-cart">
 
@@ -29,16 +31,16 @@
       <div class="product-title">{{item.product_name}}</div>
       <p class="product-description">{{item.product_material}}</p>
     </div>
-    <div class="product-price">{{item.product_price}}</div>
+    <div class="product-price">₹{{item.product_price}}</div>
     <div class="product-quantity">
-      <input type="number" value="{{cartarr[i].quantity}}" min="1">
+      <input type="number" value="{{cartarr[i].qty}}" min="1">
     </div>
     <div class="product-removal">
-      <button class="remove-product" (click)="deletecart()">
+      <button class="remove-product" (click)="deletecart(item.product_id,i)">
         Remove
       </button>
     </div>
-    <div class="product-line-price">{{itemTotal[i]}}</div>
+    <div class="product-line-price">₹{{itemTotal[i]}}</div>
   </div>
 
 
@@ -52,18 +54,13 @@
       <label>GST (18%)</label>
       <div class="totals-value" id="cart-tax">{{gst}}</div>
     </div>
-    <div class="totals-item">
-      <label>Shipping</label>
-      <div class="totals-value" id="cart-shipping">{{shipping}}</div>
-    </div>
     <div class="totals-item totals-item-total">
       <label>Grand Total</label>
       <div class="totals-value" id="cart-total">{{grandtotal}}</div>
     </div>
   </div>
       
-      <button class="checkout" (click)="continue()">Continue to Payment</button>
-      <button class="checkout" (click)="paytm()">PayTM</button>
+      <button class="checkoutButton" (click)="continue()">Continue</button>
 
 </div>
 

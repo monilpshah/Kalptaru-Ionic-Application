@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { PaytmService } from './paytm.service';
+import { MailService } from './mail.service';
 
-describe('PaytmService', () => {
+describe('MailService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: PaytmService = TestBed.get(PaytmService);
+    const service: MailService = TestBed.get(MailService);
     expect(service).toBeTruthy();
   });
 });

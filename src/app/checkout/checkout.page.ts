@@ -6,6 +6,7 @@ import { ProductDescriptionService } from '../services/product-description.servi
 import { product } from '../classes/product';
 import { deletecart } from '../classes/deletecart';
 import { PaytmService } from '../services/paytm.service';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-checkout',
@@ -23,9 +24,10 @@ export class CheckoutPage implements OnInit {
   j:number;
   subtotal:number=0;
   gst:number=0;
-  shipping:number=0;
   grandtotal:number=0;
-  constructor(private _route:Router,private _acroute:ActivatedRoute,private _cart:CartService,private _productDetail:ProductDescriptionService,private _paytm:PaytmService) { }
+  stflag=0;
+  
+  constructor(private _route:Router,private _acroute:ActivatedRoute,private _cart:CartService,private _productDetail:ProductDescriptionService,private _paytm:PaytmService,public toastCtrl: ToastController) { }
 
   ngOnInit() {
     this.user_name=localStorage.getItem('user_email');
@@ -33,20 +35,22 @@ export class CheckoutPage implements OnInit {
     this._cart.getCartProducts(this.user_name).subscribe(
       (data:cart[])=>{
           this.cartarr=data;
-          //console.log(this.cartarr);
+          console.log(this.cartarr);
           for(this.i=0;this.i<this.cartarr.length;this.i++){
-            this._productDetail.productByProductId(this.cartarr[this.i].product_id).subscribe(
+            this._productDetail.productByProductId(this.cartarr[this.i].fk_product_id).subscribe(
               (data:any)=>{
                 this.productDescriptionarr=this.productDescriptionarr.concat(data);
                 for(this.j=0;this.j<this.productDescriptionarr.length;this.j++){
                  
-                  this.itemTotal[this.j]=this.cartarr[this.j].quantity*this.productDescriptionarr[this.j].product_price;
+                  this.itemTotal[this.j]=this.cartarr[this.j].qty*this.productDescriptionarr[this.j].product_price;
+                  while(this.stflag<this.itemTotal.length){
+                    this.subtotal+=this.itemTotal[this.stflag];
+                    this.stflag++;
+                  }
                   
-                  this.subtotal+=this.itemTotal[this.j];                  
                   //console.log(this.subtotal);
                   this.gst=this.subtotal*0.18;
-                  this.shipping=500;
-                  this.grandtotal=this.subtotal+this.gst+this.shipping;
+                  this.grandtotal=this.subtotal+this.gst;
                 }             
 
                 }
@@ -57,17 +61,40 @@ export class CheckoutPage implements OnInit {
 
 
   }
-  removeFromCart(product_id){
-    console.log(product_id);
-    this._cart.deletecart(new deletecart(product_id,this.user_name)).subscribe(
+  deletecart(product_id,i){
+    // console.log(product_id);
+    this._cart.deletecart(new deletecart(this.user_name,product_id)).subscribe(
       (data:any)=>{
         alert("Product deleted.");
+        console.log(data);
+        this.productDescriptionarr.splice(this.productDescriptionarr.indexOf(product_id),1);
+        this.cartarr.splice(this.cartarr.indexOf(product_id),1);
+        this.itemTotal.splice(i,1);
+        
+        console.log(this.productDescriptionarr);
+        this.subtotal=0;
+        this.gst=0;
+        this.stflag=0;
+        this.grandtotal=0;
+        //this.ngOnInit();
+        for(this.j=0;this.j<this.productDescriptionarr.length;this.j++){
+          this.itemTotal[this.j]=this.cartarr[this.j].qty*this.productDescriptionarr[this.j].product_price;
+          while(this.stflag<this.itemTotal.length){
+            this.subtotal+=this.itemTotal[this.stflag];
+            this.stflag++;
+          }
+          
+          //console.log(this.subtotal);
+          this.gst=this.subtotal*0.18;
+          this.grandtotal=this.subtotal+this.gst;
+        }
       }
     );
-    this._route.navigate(["/checkout"]);
+    // this._route.navigate(["/checkout"]);
   }
   continue(){
-    this._route.navigate(["/payment-gateway"]);
+    localStorage.setItem("gt",this.grandtotal+"");
+    this._route.navigate(["/payment-option"]);
   }
   menutrue(){
     this._route.navigate(["/menu"]);
@@ -75,5 +102,15 @@ export class CheckoutPage implements OnInit {
   paytm(){
     this._paytm.payment=this.grandtotal;
     window.open('http://localhost:8080/','_self');
+  }
+  async presentToast() {
+    const toast = await this.toastCtrl.create({
+      message: "Login Successful.",
+      cssClass: "toast-scheme ",
+      showCloseButton: true,
+      // closeButtonText: "OK",
+      position: 'bottom'
+    });
+    toast.present();
   }
 }

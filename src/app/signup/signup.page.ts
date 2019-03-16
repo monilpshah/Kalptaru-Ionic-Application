@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { signup } from '../classes/signup';
 import { Router } from '@angular/router';
 import { SignupService } from '../services/signup.service';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-signup',
@@ -10,7 +11,7 @@ import { SignupService } from '../services/signup.service';
 })
 export class SignupPage implements OnInit {
 
-  constructor(private _route:Router,private _signupservice:SignupService) { }
+  constructor(private _route:Router,private _signupservice:SignupService,public toastCtrl:ToastController) { }
 
   user_email :string;
   user_password :string;
@@ -37,5 +38,14 @@ export class SignupPage implements OnInit {
   login_navigate(){
     this._route.navigate(['']);
   }
-
+  async presentToast() {
+    const toast = await this.toastCtrl.create({
+      message: "Login Successful.",
+      cssClass: "toast-scheme ",
+      showCloseButton: true,
+      // closeButtonText: "OK",
+      position: 'bottom'
+    });
+    toast.present();
+  }
 }

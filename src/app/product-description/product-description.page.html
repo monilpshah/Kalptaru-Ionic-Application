@@ -44,23 +44,32 @@
                       
                     <p class="s-text8 p-t-10">
                       <b>EMI Calculation: </b><br>
-                        EMI : {{emi}} &nbsp;Months <br>                        
+                        EMI : ₹{{emi}} &nbsp;Months <br>                        
                       </p>
                  </div>
-                 <ion-list style="width:100%;">
+                 <ion-list style="width:100%;padding: 10px;">
                     <ion-item>
                       <ion-range min="3" max="24" step="1" snaps="true" color="secondary" [(ngModel)]="emi" (ionChange)="onchangeEmi()"></ion-range>
                     </ion-item>
                   </ion-list>
 
-                  <p class="s-text8 p-t-10">
-                      EMI TO PAY PER MONTH: {{emiPrice}}<br>
-                      Down Payment: {{downpayment}} <br>
+                  <p class="s-text8 p-t-10" style="padding: 10px;">
+                      EMI TO PAY PER MONTH: ₹{{emiPrice}}<br>
+                      Down Payment: ₹{{downpayment}} <br>
                   </p>
-                     
-                  <ion-list>
+                  
+                  <ion-item >
+                      <h5><ion-icon name="pricetag" item-start></ion-icon>
+                      <b>Rent:&nbsp;</b>
+                      <ion-badge item-end color="secondary">₹{{rent}}&nbsp;&nbsp;</ion-badge></h5>
+                    </ion-item>
+                   <div style="font-family: Georgia, 'Times New Roman', Times, serif;font-size: 12px;text-align: center;">(*T & C Apply)</div>
+                  
+                        
+                   
+                  <ion-list style="width: 80%;padding: 10px;">
                       <ion-item>
-                        <ion-label>Size</ion-label>
+                        Size: <div style="font-size: 8px;">(Tap here)</div>
                         <ion-select [(ngModel)]="size">
                           <ion-select-option value="4 x 8">4 x 8</ion-select-option>
                           <ion-select-option value="6 x 7">6 x 7</ion-select-option>

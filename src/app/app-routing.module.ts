@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: 'signup',
    loadChildren: './signup/signup.module#SignupPageModule' 
   },
-  { path: 'productpage', loadChildren: './productpage/productpage.module#ProductpagePageModule' },
+  { path: 'productpage/:category_id', loadChildren: './productpage/productpage.module#ProductpagePageModule' },
   { path: 'product-description/:product_id', loadChildren: './product-description/product-description.module#ProductDescriptionPageModule' },
   { path: 'checkout', loadChildren: './checkout/checkout.module#CheckoutPageModule' },
   { path: 'logout', loadChildren: './logout/logout.module#LogoutPageModule' },
@@ -30,7 +30,12 @@ const routes: Routes = [
   { path: 'menu', loadChildren: './menu/menu.module#MenuPageModule' },
   { path: 'callback', loadChildren: './callback/callback.module#CallbackPageModule' },
   { path: 'searchproduct', loadChildren: './searchproduct/searchproduct.module#SearchproductPageModule' },
-  { path: 'wishlist', loadChildren: './wishlist/wishlist.module#WishlistPageModule' }
+  { path: 'wishlist', loadChildren: './wishlist/wishlist.module#WishlistPageModule' },
+  { path: 'payment-option', loadChildren: './payment-option/payment-option.module#PaymentOptionPageModule' },
+  { path: 'forgot-password', loadChildren: './forgot-password/forgot-password.module#ForgotPasswordPageModule' },
+  { path: 'my-profile', loadChildren: './my-profile/my-profile.module#MyProfilePageModule' },
+  { path: 'update-profile', loadChildren: './update-profile/update-profile.module#UpdateProfilePageModule' },
+  { path: 'change-password', loadChildren: './change-password/change-password.module#ChangePasswordPageModule' }
 ];
 
 @NgModule({

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-payment-gateway',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PaymentGatewayPage implements OnInit {
 
-  constructor() { }
+  constructor(public toastCtrl:ToastController) { }
 
   ngOnInit() {
   }
-
+  async presentToast() {
+    const toast = await this.toastCtrl.create({
+      message: "Login Successful.",
+      cssClass: "toast-scheme ",
+      showCloseButton: true,
+      // closeButtonText: "OK",
+      position: 'bottom'
+    });
+    toast.present();
+  }
 }

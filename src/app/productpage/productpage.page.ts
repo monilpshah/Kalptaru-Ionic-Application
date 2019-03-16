@@ -3,13 +3,15 @@ import { ProductService } from '../services/product.service';
 import { product } from '../classes/product';
 import { category } from '../classes/category';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MenuController, NavController } from '@ionic/angular';
+import { MenuController, NavController, ToastController } from '@ionic/angular';
 import { CartService } from '../services/cart.service';
 import { WishlistService } from '../services/wishlist.service';
 import { cart } from '../classes/cart';
 import { wishlist } from '../classes/wishlist';
 import * as $ from 'jquery';
 import { IonInfiniteScroll } from '@ionic/angular';
+import { checkRepeatProduct } from '../classes/checkRepeatProduct';
+import { deletewishlist } from '../classes/deletewishlist';
 
 
 @Component({
@@ -46,76 +48,123 @@ export class ProductpagePage implements OnInit {
   sort:string;
 
   
- constructor(private _product:ProductService,private _acroute:ActivatedRoute,private _route:Router,private _addtocart:CartService,private _wishlist:WishlistService,public navCtrl: NavController) { }
+ constructor(private _product:ProductService,private _acroute:ActivatedRoute,private _route:Router,private _addtocart:CartService,private _wishlist:WishlistService,public navCtrl: NavController,public toastCtrl:ToastController) { }
 
  ngOnInit() {
-  this.user_name=localStorage.getItem('user_email');
-  //console.log(this.user_name);
-  //  this.category_id=this._acroute.snapshot.params['category_id'];
-  //  //this.category_id=101;
-  //  this._product.productByCategoryId(this.category_id).subscribe(
-  //    (data:any)=>{
-  //      console.log(data);
-  //      this.productarr=data;
-  //    }
-  //  );
-
-   this._product.getAllProducts().subscribe(
-    (data:any)=>{
-      this.productarr=data;
+        this.user_name=localStorage.getItem('user_email');
+        this.category_id=this._acroute.snapshot.params['category_id'];
+    if(this.category_id=1001){
+                      // console.log("in on init");
+                        this._product.getAllProducts().subscribe(
+                            (data:any)=>{
+                              // console.log(data);
+                                    this.productarr=data;
+                              }
+                          );   
     }
-  );
-
-   this._product.getAllCategory().subscribe(
-   (data:any)=>{
-     this.categoryarr=data;
-   }
-   );
+  else{
+   
+                    this._product.productByCategoryId(this.category_id).subscribe(
+                      (data:any)=>{
+                        // console.log(data);
+                        this.productarr=data;
+                      }
+                    );
+                    }
+                    
+                    this._product.getAllCategory().subscribe(
+                    (data:any)=>{
+                      this.categoryarr=data;
+                    }
+                    );
  }
- onClickCategory(index){
-   console.log(index);
-   this.category_id=this.categoryarr[index].category_id;
-   //console.log(this.category_id);
-   this._product.productByCategoryId(this.category_id).subscribe(
-     (data:any)=>{
-       //console.log(data);
-       this.productarr=data;
-     }
-   );
+ //ngonInit Ends
+
+
+ onClickCategory(){
+            if(this.index == "all"){
+                        // console.log("in all category");
+                        this._route.navigate(['productpage',1001]);
+            }
+            else{
+                              this._product.getCategoryByName(this.index).subscribe(
+                                (data:any)=>{
+                                  //console.log(data);
+                                  this.category_id=data[0].category_id;
+                                  this._product.productByCategoryId(this.category_id).subscribe(
+                                    (data:any)=>{
+                                      this.productarr=data;
+                                    }
+                                  );
+                                }
+                              );
+                              this._route.navigate(['productpage',this.category_id]);
+          }
  }
  onClickProduct(product_id){
-   this._route.navigate(['product-description',product_id]);
+              this._route.navigate(['product-description',product_id]);
  }
  showAllCategory(){
-  this._product.getAllProducts().subscribe(
-    (data:any)=>{
-      this.productarr=data;
-    }
-  );   
+          this._product.getAllProducts().subscribe(
+            (data:any)=>{
+              this.productarr=data;
+            }
+          );   
  }
- addToCart(product_id){
-   //console.log(product_id);
-  this._addtocart.addtocart(new cart(product_id,this.size,this.qty,this.user_name,"CASH")).subscribe(
+ addToCart(product_id,i){
+  this._addtocart.checkRepeatProduct(new checkRepeatProduct(product_id,this.user_name)).subscribe(
     (data:any)=>{
-      //console.log(data);
-      alert("Successfully added to the cart");
-      this._route.navigate(["/checkout"]);
+      if(data.length==1){
+        alert("already added.");
+        this._route.navigate(["/checkout"]);
+      }
+      else {
+        this._addtocart.addtocart(new cart(product_id,this.size,this.qty,this.user_name,"CASH")).subscribe(
+          (data:any)=>{
+            alert("Successfully added to the cart");
+            this._route.navigate(["/checkout"]);
+          }
+        );
+      }
     }
   );
- }
+  
+}
  addToWishlist(product_id){
-   console.log(this.user_name);
-   this._wishlist.addtowishlist(new wishlist(product_id,this.user_name)).subscribe(
-     (data:any)=>{
-       console.log(data);
-      alert("Successfully added to the Wishlist");
-      
-     }
-   );
+                    // console.log(this.user_name);
+                    
+                    this._wishlist.checkRepeatWishlist(new deletewishlist(this.user_name,product_id)).subscribe(
+                      (data:any)=>{
+                          if(data.length==1){
+                            alert("already added.");
+                            this._route.navigate(["/wishlist"]);
+                          }                        
+                          else{
+                           this._wishlist.addtowishlist(new wishlist(product_id,this.user_name)).subscribe(
+                            (data:any)=>{
+                              // console.log(data);
+                              alert("Successfully added to the Wishlist");                              
+                              }
+                            );
+                          }
+                        }
+                      );
  }
  searchclick(){
-   this._route.navigate(['/searchproduct']);
+        this._route.navigate(['/searchproduct']);
  } 
   
- 
+ onClickAllCategory(){
+
+ } 
+ async presentToast() {
+  const toast = await this.toastCtrl.create({
+    message: "Login Successful.",
+    cssClass: "toast-scheme ",
+    showCloseButton: true,
+    // closeButtonText: "OK",
+    position: 'bottom'
+  });
+  toast.present();
+}
 }

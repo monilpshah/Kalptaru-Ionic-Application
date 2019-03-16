@@ -3,7 +3,7 @@ import { ProductService } from '../services/product.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CartService } from '../services/cart.service';
 import { WishlistService } from '../services/wishlist.service';
-import { NavController } from '@ionic/angular';
+import { NavController, ToastController } from '@ionic/angular';
 import { category } from '../classes/category';
 import { product } from '../classes/product';
 import { SearchService } from '../services/search.service';
@@ -44,7 +44,7 @@ export class SearchproductPage implements OnInit {
   searchedItem:string="";
   searcharr:search[]=[];
 
-  constructor(private _product:ProductService,private _acroute:ActivatedRoute,private _route:Router,private _addtocart:CartService,private _wishlist:WishlistService,public navCtrl: NavController,private _search:SearchService) { }
+  constructor(private _product:ProductService,private _acroute:ActivatedRoute,private _route:Router,private _addtocart:CartService,private _wishlist:WishlistService,public navCtrl: NavController,private _search:SearchService,public toastCtrl:ToastController) { }
 
   ngOnInit() {
     this.user_name=localStorage.getItem('user_email');
@@ -80,5 +80,14 @@ export class SearchproductPage implements OnInit {
   viewCtrl_dismiss(){
     this._route.navigate(['productpage']);
   }  
-
+  async presentToast() {
+    const toast = await this.toastCtrl.create({
+      message: "Login Successful.",
+      cssClass: "toast-scheme ",
+      showCloseButton: true,
+      // closeButtonText: "OK",
+      position: 'bottom'
+    });
+    toast.present();
+  }
 }

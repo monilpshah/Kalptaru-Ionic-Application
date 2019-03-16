@@ -7,7 +7,7 @@ import { product } from '../classes/product';
 })
 export class ProductService {
   private url: string = 'http://localhost:3000/userproductByCategoryId/';
-  private categoryurl:string= "http://localhost:3000/category/"
+  private categoryurl:string= "http://localhost:3000/category/";
   constructor(private _http:HttpClient) { }
 
   productByCategoryId(category_id){
@@ -18,6 +18,9 @@ export class ProductService {
   }
   getAllProducts(){
     return this._http.get("http://localhost:3000/product/");
+  }
+  getCategoryByName(category_name){
+    return this._http.get("http://localhost:3000/category1/"+category_name);
   }
 }
 
