@@ -35,7 +35,9 @@ const routes: Routes = [
   { path: 'forgot-password', loadChildren: './forgot-password/forgot-password.module#ForgotPasswordPageModule' },
   { path: 'my-profile', loadChildren: './my-profile/my-profile.module#MyProfilePageModule' },
   { path: 'update-profile', loadChildren: './update-profile/update-profile.module#UpdateProfilePageModule' },
-  { path: 'change-password', loadChildren: './change-password/change-password.module#ChangePasswordPageModule' }
+  { path: 'change-password', loadChildren: './change-password/change-password.module#ChangePasswordPageModule' },
+  { path: 'categorypage', loadChildren: './categorypage/categorypage.module#CategorypagePageModule' },
+  { path: 'filter', loadChildren: './filter/filter.module#FilterPageModule' }
 ];
 
 @NgModule({

@@ -50,6 +50,7 @@ export class CheckoutPage implements OnInit {
                   
                   //console.log(this.subtotal);
                   this.gst=this.subtotal*0.18;
+                  this.gst=parseInt(this.gst+"");
                   this.grandtotal=this.subtotal+this.gst;
                 }             
 
@@ -86,6 +87,7 @@ export class CheckoutPage implements OnInit {
           
           //console.log(this.subtotal);
           this.gst=this.subtotal*0.18;
+          this.gst=parseInt(this.gst+"");
           this.grandtotal=this.subtotal+this.gst;
         }
       }

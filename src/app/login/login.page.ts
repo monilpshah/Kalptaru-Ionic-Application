@@ -34,7 +34,7 @@ export class LoginPage implements OnInit {
 
         this._logout.flag=true;
         //this.flag=1;
-        this._route.navigate(['productpage',101]);
+        this._route.navigate(['productpage',1001]);
         }
         else{
           alert("Please enter valid username and password");

@@ -67,7 +67,7 @@
                   
                         
                    
-                  <ion-list style="width: 80%;padding: 10px;">
+                  <!-- <ion-list style="width: 80%;padding: 10px;">
                       <ion-item>
                         Size: <div style="font-size: 8px;">(Tap here)</div>
                         <ion-select [(ngModel)]="size">
@@ -79,7 +79,7 @@
                           <ion-select-option value="7 x 12">7 x 12</ion-select-option>
                         </ion-select>
                       </ion-item>
-                    </ion-list>
+                    </ion-list> -->
 
                     <!-- quantity -->
                     <div class="flex-r-m flex-w p-t-10">
@@ -140,6 +140,19 @@
                                 </div>
                               </ion-col>
                             </ion-row>
+                            <ion-row>
+                                <ion-col>
+                                  <div>
+                                    <b>Width</b>
+                                  </div>
+                                </ion-col>
+                                <ion-col><div></div></ion-col>
+                                <ion-col>
+                                  <div>
+                                    {{item.product_width}}
+                                  </div>
+                                </ion-col>
+                              </ion-row>
                             <ion-row>
                                 <ion-col>
                                   <div>
@@ -228,7 +241,7 @@
 
 
 </ion-content>
-<ion-footer style="background: transparent; background-color: transparent;padding-left: 30px;">
+<!-- <ion-footer style="background: transparent; background-color: transparent;padding-left: 30px;">
     <ion-row>
       <ion-col><ion-icon name="arrow-dropleft-circle"></ion-icon></ion-col>
       <ion-col><ion-icon name="arrow-dropright-circle"></ion-icon></ion-col>
@@ -236,4 +249,4 @@
       <ion-col><ion-icon name="person"></ion-icon></ion-col>
     </ion-row>
       
-  </ion-footer>
+  </ion-footer> -->

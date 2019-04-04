@@ -11,11 +11,11 @@
 				</ion-title> -->
 					<!-- <ion-col></ion-col> -->
 					<!-- <ion-col><ion-icon name="search"  (click)="searchclick()" style="height: 20px;width:30px;padding-top: 15px;margin-left:90%;"></ion-icon></ion-col> -->
-					<ion-searchbar style="width:65%;" (click)="searchclick()"></ion-searchbar>
-					
+					<ion-searchbar style="width:70%;" (click)="searchclick()" disabled></ion-searchbar>&nbsp;
+					<label (click)="onClickCategory()" style="font-size: 10px;background-color:lavender;color: black;margin-top:20px;width:20%;border-radius: 5px;">Search By Category</label>
 					
 							<div>
-									<ion-item class=scrollbar>
+									<!-- <ion-item class=scrollbar>
 											<ion-icon name="grid"></ion-icon>
 											<ion-select [(ngModel)]="index" submitText="Okay" cancelText="Cancel" (ionChange)="onClickCategory()">
 												<div *ngFor="let item of categoryarr,let i=index">
@@ -23,7 +23,14 @@
 											</div>
 											<ion-select-option value="all">ALL</ion-select-option>
 											</ion-select>
-										  </ion-item>
+										  </ion-item> -->
+
+										  <!-- <ion-button color="light" style="width:45%;float:left;padding-left: 10px;" interface="action-sheet"><ion-icon name="md-funnel" interface="action-sheet"></ion-icon>&nbsp;&nbsp;Sort
+											<ion-select [(ngModel)]="notifications" interface="action-sheet">
+											<ion-select-option value="all" (ionSelect)="notificationSelect($event)" ><ion-icon name="md-funnel"></ion-icon>All</ion-select-option>
+											<ion-select-option *ngFor="let item of categoryarr,let i=index"value="{{item.category_name}}" (click)="onClickCategoryid(item.category_name)">{{item.category_name}}</ion-select-option>
+											</ion-select>
+										</ion-button> -->
 								</div>
 
 					
@@ -37,6 +44,14 @@
 	</ion-header>
 <ion-content padding class="scrollbar">
 		
+	<ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+		<ion-refresher-content
+		  pullingIcon="arrow-dropdown"
+		  pullingText="Pull to refresh"
+		  refreshingSpinner="circles"
+		  refreshingText="Refreshing...">
+		</ion-refresher-content>
+	  </ion-refresher>
 						
 			  <ion-card   *ngFor="let item of productarr" >
 					<img src="{{'http://localhost:3000/images/' + item.product_image}}" (click)="onClickProduct(item.product_id)"/>
@@ -44,24 +59,25 @@
 					<ion-card-content>
 					  <ion-card-title >
 						{{item.product_name}}
-						<ion-icon name="heart-empty" style="float: right;height: 20px;width:30px;padding-right: 10%;" (click)="addToWishlist(item.product_id)"></ion-icon>
 						</ion-card-title>
 						<ion-card-subtitle > {{item.product_price}}
 								<button  (click)="addToCart(item.product_id)" style="float: right;height: 20px;width:30px;padding-right: 10%;"><ion-icon name="cart" style="float: right;height: 20px;width:30px;padding-right: 10%;"></ion-icon></button>
+								
 						</ion-card-subtitle>					  
+						<ion-icon name="heart-empty" style="float: right;height: 20px;width:30px;padding-right: 10%;" (click)="addToWishlist(item.product_id)"></ion-icon>
 					</ion-card-content>
 					</ion-card> 			
 				
 </ion-content>
 <div class="foot">
 		<ion-button color="light" style="width:45%;float:left;padding-left: 10px;" interface="action-sheet"><ion-icon name="md-funnel" interface="action-sheet"></ion-icon>&nbsp;&nbsp;Sort
-		<ion-select [(ngModel)]="notifications" interface="action-sheet">
-		<ion-select-option value="all" (ionSelect)="notificationSelect($event)" ><ion-icon name="md-funnel"></ion-icon>All</ion-select-option>
-		<ion-select-option value="popular">Popular</ion-select-option>
-	    <ion-select-option value="hTol">Price High to low</ion-select-option>
+		<ion-select [(ngModel)]="notifications" interface="action-sheet"  (ionChange)="sorting()">
+		<ion-select-option value="all" (ionSelect)="notificationSelect($event)" ><ion-icon name="md-funnel"></ion-icon>Sort</ion-select-option>
+		<!-- <ion-select-option value="popular">Popular</ion-select-option> -->
+	    <ion-select-option value="hTol" (click)="PriceHighToLow()">Price High to low</ion-select-option>
 	    <ion-select-option value="lToH">Price Low to high</ion-select-option>
 		</ion-select>
 	</ion-button>
-	  <ion-button color="light" style="width:45%;float:right;padding-right: 10px;" ><ion-icon name="ios-funnel"></ion-icon>&nbsp;&nbsp;Filter</ion-button>
+	  <ion-button color="light" style="width:45%;float:right;padding-right: 10px;" (click)="onClickFilter()"><ion-icon name="ios-funnel"></ion-icon>&nbsp;&nbsp;Filter</ion-button>
 
 </div>

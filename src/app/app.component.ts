@@ -24,6 +24,11 @@ export class AppComponent {
       icon: 'heart'
     },
     {
+      title: 'Category',
+      url: '/categorypage',
+      icon: 'cart'
+    },
+    {
       title: 'Cart',
       url: '/checkout',
       icon: 'cart'

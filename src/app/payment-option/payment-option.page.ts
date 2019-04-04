@@ -47,7 +47,7 @@ export class PaymentOptionPage implements OnInit {
       );
     }
     // console.log(this.paymentOption);
-    this._route.navigate(["/payment-option"]);
+    this._route.navigate(["/payment-gateway"]);
   }
   
   paytm(){

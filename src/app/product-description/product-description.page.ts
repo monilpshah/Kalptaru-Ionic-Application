@@ -10,6 +10,7 @@ import { checkRepeatProduct } from '../classes/checkRepeatProduct';
 import { WishlistService } from '../services/wishlist.service';
 import { wishlist } from '../classes/wishlist';
 import { ToastController } from '@ionic/angular';
+import { deletewishlist } from '../classes/deletewishlist';
 
 @Component({
   selector: 'app-product-description',
@@ -27,7 +28,6 @@ export class ProductDescriptionPage implements OnInit {
   productDescriptionarr:product[]=[];
   product_id:number;
   qty:number=1;
-  size:string="6 X 7";
   similarproducts:product[]=[];
   cartarr:cart[]=[];
   user_name:string;
@@ -93,13 +93,15 @@ export class ProductDescriptionPage implements OnInit {
     this._addtocart.checkRepeatProduct(new checkRepeatProduct(this.product_id,this.user_name)).subscribe(
       (data:any)=>{
         if(data.length==1){
-          alert("already added.");
+          // alert("already added.");
+          this.presentToast("Already added.");
           this._route.navigate(["/checkout"]);
         }
         else {
-          this._addtocart.addtocart(new cart(this.product_id,this.size,this.qty,this.user_name,"CASH")).subscribe(
+          this._addtocart.addtocart(new cart(this.product_id,this.qty,this.user_name,"CASH")).subscribe(
             (data:any)=>{
-              alert("Successfully added to the cart");
+              // alert("Successfully added to the cart");
+              this.presentToast("Successfully added to the cart.");
               this._route.navigate(["/checkout"]);
             }
           );
@@ -109,13 +111,32 @@ export class ProductDescriptionPage implements OnInit {
     
   }
   wishlist(product_id){
-    this._wishlist.addtowishlist(new wishlist(product_id,this.user_name)).subscribe(
-      (data:any)=>{
-        alert("Successfully added to the wishlist");
-        this.ngOnInit();
+    // this._wishlist.addtowishlist(new wishlist(product_id,this.user_name)).subscribe(
+    //   (data:any)=>{
+    //     // alert("Successfully added to the wishlist");
+    //     this.presentToast("Successfully added to the wishlist.");
+    //     this.ngOnInit();
 
-      }
-    );
+    //   }
+    // );
+    this._wishlist.checkRepeatWishlist(new deletewishlist(this.user_name,product_id)).subscribe(
+      (data:any)=>{
+          if(data.length==1){
+            // alert("already added.");
+            this.presentToast("Already Added.");
+            this._route.navigate(["/wishlist"]);
+          }                        
+          else{
+           this._wishlist.addtowishlist(new wishlist(product_id,this.user_name)).subscribe(
+            (data:any)=>{
+              // console.log(data);
+              // alert("Successfully added to the Wishlist");                              
+              this.presentToast("Successfully added to the wishlist.");
+              }
+            );
+          }
+        }
+      );
   }
   onClickDescription(){
     if(this.descriptionflag){
@@ -130,9 +151,9 @@ export class ProductDescriptionPage implements OnInit {
 
   addToCart(product_id){
     //console.log(product_id);
-   this._addtocart.addtocart(new cart(product_id,this.size,this.qty,this.user_name,"CASH")).subscribe(
+   this._addtocart.addtocart(new cart(product_id,this.qty,this.user_name,"CASH")).subscribe(
      (data:any)=>{
-       //console.log(data);
+      //  console.log(data);
        alert("Successfully added to the cart");
        this._route.navigate(["/checkout"]);
      }
@@ -164,9 +185,9 @@ export class ProductDescriptionPage implements OnInit {
       this.qty--;
     }
   }
-  async presentToast() {
+  async presentToast(message) {
     const toast = await this.toastCtrl.create({
-      message: "Login Successful.",
+      message: message,
       cssClass: "toast-scheme ",
       showCloseButton: true,
       // closeButtonText: "OK",

@@ -78,7 +78,7 @@ export class SearchproductPage implements OnInit {
     );
   }
   viewCtrl_dismiss(){
-    this._route.navigate(['productpage']);
+    this._route.navigate(['productpage',1001]);
   }  
   async presentToast() {
     const toast = await this.toastCtrl.create({

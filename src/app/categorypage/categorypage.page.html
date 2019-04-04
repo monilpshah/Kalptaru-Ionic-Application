@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Category
+    </ion-title>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list ion-item *ngFor="let item of categoryarr,let i=index" (click)="onClickCategory(item.category_id)" icon-start>
+
+    <button >
+      <!-- <ion-icon [name]="'logo-' + item.icon" [ngStyle]="{'color': item.color}" item-start></ion-icon> -->
+      {{item.category_name}}
+      
+    </button>
+    <br>
+    <hr>    
+  </ion-list>
+  <ion-list>
+  <button (click)="onclickAllProducts()">
+      All Products
+      </button><br>
+    </ion-list>
+</ion-content>

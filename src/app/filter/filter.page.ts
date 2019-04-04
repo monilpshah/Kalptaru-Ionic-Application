@@ -1,0 +1,21 @@
+import { Component, OnInit } from '@angular/core';
+
+
+@Component({
+  selector: 'app-filter',
+  templateUrl: './filter.page.html',
+  styleUrls: ['./filter.page.scss'],
+})
+export class FilterPage implements OnInit {
+
+  constructor() { }
+  structure:number;
+
+  ngOnInit() {
+  
+  }
+  price(){
+    console.log(this.structure);
+  }
+
+}

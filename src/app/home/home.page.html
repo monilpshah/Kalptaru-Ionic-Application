@@ -10,7 +10,7 @@
 </ion-header>
 
 <ion-content>
-            <ion-slides pager="true" [options]="slideOpts">
+            <ion-slides pager="true" [options]="slideOpts" (click)="firstSlides()">
                   <ion-slide>
                       <img src="../../assets/images/homeslide1.jpg" placeholder="homeslide1">            
                   </ion-slide>
@@ -32,19 +32,19 @@
         </div>
         <div style="padding: 10px;width:100%;text-align: center">
           <ion-row>
-              <ion-card style="width:100%;">
+              <ion-card style="width:100%;" (click)="kalpataruspecial()">
                   <img src="../../assets/images/banner2.jpg" width="100%" height="100px"/>
                   <div class="card-title"style="padding:10px;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;text-align: center;">Kalpataru Special</div>
                 </ion-card>
               </ion-row>
                 <ion-row>
-                    <ion-card style="width:100%;">
+                    <ion-card style="width:100%;" (click)="bedsandchairs()">
                         <img src="../../assets/images/i_zoom.jpg" width="100%" height="100px"/>
                         <div class="card-title"style="padding:10px;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;text-align: center;">Beds & chairs</div>
                       </ion-card>
                 </ion-row>
                       <ion-row>
-                          <ion-card style="width:100%;">
+                          <ion-card style="width:100%;" (click)="sofaandtables()">
                               <img src="../../assets/images/pic6.jpg" width="100%" height="100px"/>
                               <div class="card-title"style="padding:10px;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;text-align: center;">Sofa & tables</div>
                             </ion-card>
@@ -57,25 +57,25 @@
         <div style="padding: 10px;text-align: center">
             <ion-slides  [options]="slideOpts">
                 <ion-slide>
-                    <ion-card>
+                    <ion-card (click)="beds()">
                         <img src="../../assets/images/pic7.jpg" width="40%" height="200px"/>
                         <div class="card-title"style="padding:10px;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;text-align: center;">Beds</div>
                       </ion-card>
                 </ion-slide>
                 <ion-slide>
-                    <ion-card >
+                    <ion-card (click)="chairs()">
                         <img src="../../assets/images/pic11.jpg" width="40%" height="200px"/>
                         <div class="card-title"style="padding:10px;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;text-align: center;">Chairs</div>
                       </ion-card>
                 </ion-slide>
                 <ion-slide>
-                    <ion-card >
+                    <ion-card (click)="chairsandsofa()">
                         <img src="../../assets/images/pic4.jpg" width="40%" height="200px"/>
                         <div class="card-title"style="padding:10px;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;text-align: center;">Chair Sofa</div>
                       </ion-card>
                 </ion-slide>
                 <ion-slide>
-                    <ion-card >
+                    <ion-card  (click)="doublesofa()">
                         <img src="../../assets/images/pic10.jpg" width="40%" height="200px"/>
                         <div class="card-title"style="padding:10px;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;text-align: center;">Double Sofa</div>
                       </ion-card>
@@ -92,12 +92,12 @@
               <img src="3.png">
             </div> -->
 </ion-content>
-<ion-footer style="background: transparent; background-color: transparent;padding-left: 30px;">
+<!-- <ion-footer style="background: transparent; background-color: transparent;padding-left: 30px;">
   <ion-row>
-    <ion-col><ion-icon name="arrow-dropleft-circle"></ion-icon></ion-col>
-    <ion-col><ion-icon name="arrow-dropright-circle"></ion-icon></ion-col>
-    <ion-col><ion-icon name="apps"></ion-icon></ion-col>
-    <ion-col><ion-icon name="person"></ion-icon></ion-col>
+    <ion-col><ion-icon name="arrow-dropleft-circle" (click)="backkey()"></ion-icon></ion-col>
+    <ion-col><ion-icon name="arrow-dropright-circle" (click)="forwardkey()"></ion-icon></ion-col>
+    <ion-col><ion-icon name="apps"  (click)="home()"></ion-icon></ion-col>
+    <ion-col><ion-icon name="person" (click)="profilekey()"></ion-icon></ion-col>
   </ion-row>
     
-</ion-footer>
+</ion-footer> -->
