@@ -1,7 +1,7 @@
 export class product{
   constructor(public product_id:string,
     public product_name:string,
-    public category_id:number,
+    public fk_category_id:number,
     public 	product_price:number,
     public product_colour:string,
     public product_image:string,

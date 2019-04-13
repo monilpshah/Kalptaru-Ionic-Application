@@ -21,6 +21,9 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
   }
+  forgotpassword(){
+    this._route.navigate(['forgot-password']);
+  }
   login(){
     this._login.loginByEmail(new login(this.user_email,this.user_password)).subscribe(
       (data:any)=>{

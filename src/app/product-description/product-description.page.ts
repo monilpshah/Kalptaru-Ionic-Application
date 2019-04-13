@@ -63,15 +63,18 @@ export class ProductDescriptionPage implements OnInit {
       this.emiPrice=(((this.product_price-this.downpayment)/3)*0.06)+((this.product_price-this.downpayment)/3);
                    //console.log(data[0].product_Roomtype);
                    this.rent=this.product_price*0.05;
+                  //  console.log(this.productDescriptionarr[0].fk_category_id);
+                   this._productDescription.getSimilarProducts(this.productDescriptionarr[0].fk_category_id).subscribe(
+                    (data:any)=>{
+                      this.similarproducts=data;
+                      // console.log(this.similarproducts);
+                    }
+                  );
         }
       );
       //get similar products
-      this._productDescription.getSimilarProducts(this.category_id).subscribe(
-        (data:any)=>{
-          this.similarproducts=data;
-        }
-      );
 
+      
       
   }
 
@@ -160,7 +163,7 @@ export class ProductDescriptionPage implements OnInit {
    );
   }
   onchangeEmi(){
-    //console.log(this.emi);
+    // console.log(this.emi);
     this.product_price=this.productDescriptionarr[0].product_price;
     //console.log("Product Price is: "+this.product_price);
     this.downpayment=this.product_price*0.25;

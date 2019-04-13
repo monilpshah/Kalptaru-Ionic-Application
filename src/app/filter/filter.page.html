@@ -11,15 +11,71 @@
 </ion-header>
 
 <ion-content padding>
-
-  <h3>Price:</h3><br>
-  <ion-item>
+  <label>Price:</label><br>
+  <!-- <ion-item>
     <ion-range dualKnobs="true" pin="true" [(ngModel)]="structure" color="dark" (ionChange)="price()">
       <ion-icon range-left small name="brush"></ion-icon>
       <ion-icon range-right name="brush"></ion-icon>
     </ion-range>
+  </ion-item> -->
+
+  <!-- <ion-button color="secondary" round style="width:45%;height:05%;float: left;font-size:14px;">₹0&nbsp;-&nbsp;₹5000</ion-button>
+  <ion-button color="secondary" round style="width:45%;height:05%;float: right;font-size:14px;">₹5000&nbsp;-&nbsp;₹10000</ion-button> -->
+
+  <ion-item>
+    <ion-label>Price</ion-label>
+    <ion-select [(ngModel)]="price" interface="popover" style="font-size:12px;" >
+      <ion-select-option value="0">₹0&nbsp;-&nbsp;₹5000</ion-select-option>
+      <ion-select-option value="5000">₹5000&nbsp;-&nbsp;₹10000</ion-select-option>
+      <ion-select-option value="10000">₹10000&nbsp;-&nbsp;₹15000</ion-select-option>
+      <ion-select-option value="15000">₹15000&nbsp;-&nbsp;₹20000</ion-select-option>
+      <ion-select-option value="20000">₹20000&nbsp;-&nbsp;₹25000</ion-select-option>
+      <ion-select-option value="25000">₹25000&nbsp;-&nbsp;₹30000</ion-select-option>
+    </ion-select>
   </ion-item>
 
 
+  <br><label>Height:</label><br>
+  <ion-item>
+    <ion-label>Height</ion-label>
+    <ion-select [(ngModel)]="height" interface="popover" style="font-size:12px;" >
+      <ion-select-option value="0">0&nbsp;inch&nbsp;-&nbsp;20&nbsp;inch</ion-select-option>
+      <ion-select-option value="20">20&nbsp;inch&nbsp;-&nbsp;40&nbsp;inch</ion-select-option>
+      <ion-select-option value="40">40&nbsp;inch&nbsp;-&nbsp;60&nbsp;inch</ion-select-option>
+      <ion-select-option value="60">60&nbsp;inch&nbsp;-&nbsp;80&nbsp;inch</ion-select-option>
+      <ion-select-option value="80">80&nbsp;inch&nbsp;-&nbsp;100&nbsp;inch</ion-select-option>
+      <ion-select-option value="100">more&nbsp;than&nbsp;100&nbsp;inch</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <br><label>Width:</label><br>
+  <ion-item>
+    <ion-label>Width</ion-label>
+    <ion-select [(ngModel)]="width" interface="popover" style="font-size:12px;">
+      <ion-select-option value="0">0&nbsp;inch&nbsp;-&nbsp;20&nbsp;inch</ion-select-option>
+      <ion-select-option value="20">20&nbsp;inch&nbsp;-&nbsp;40&nbsp;inch</ion-select-option>
+      <ion-select-option value="40">40&nbsp;inch&nbsp;-&nbsp;60&nbsp;inch</ion-select-option>
+      <ion-select-option value="60">60&nbsp;inch&nbsp;-&nbsp;80&nbsp;inch</ion-select-option>
+      <ion-select-option value="80">80&nbsp;inch&nbsp;-&nbsp;100&nbsp;inch</ion-select-option>
+      <ion-select-option value="more100">more&nbsp;than&nbsp;100&nbsp;inch</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <br> <label>Depth:</label><br>
+  <ion-item>
+    <ion-label>Depth</ion-label>
+    <ion-select [(ngModel)]="depth" interface="popover" style="font-size:12px;" >
+      <ion-select-option value="0">1&nbsp;inch&nbsp;-&nbsp;10&nbsp;inch</ion-select-option>
+      <ion-select-option value="15">15&nbsp;inch&nbsp;-&nbsp;20&nbsp;inch</ion-select-option>
+      <ion-select-option value="20">20&nbsp;inch&nbsp;-&nbsp;40&nbsp;inch</ion-select-option>
+      <ion-select-option value="40">40&nbsp;inch&nbsp;-&nbsp;60&nbsp;inch</ion-select-option>
+      <ion-select-option value="60">60&nbsp;inch&nbsp;-&nbsp;80&nbsp;inch</ion-select-option>
+      <ion-select-option value="80">80&nbsp;inch&nbsp;-&nbsp;100&nbsp;inch</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-button color="secondary" round style="width:45%;height:10%;float: left;font-size:14px;" (click)="cancel()">Cancel</ion-button>
+  <ion-button color="secondary" round style="width:45%;height:10%;float: right;font-size:14px;" (click)="apply()">Apply</ion-button>
 
 </ion-content>
+  

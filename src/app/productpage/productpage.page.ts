@@ -14,6 +14,8 @@ import { checkRepeatProduct } from '../classes/checkRepeatProduct';
 import { deletewishlist } from '../classes/deletewishlist';
 import { SortService } from '../services/sort.service';
 import { LoadingController } from '@ionic/angular';
+import { strict } from 'assert';
+
 
 
 
@@ -50,6 +52,12 @@ export class ProductpagePage implements OnInit {
   product_offer:string;
   sort:string;
   notifications:string;
+  depthrange:String;
+  heightrange:String;
+  widthrange:String;
+  pricerange:String;
+  i:number;
+  filterarr:product[]=[];
 
   
  constructor(private _product:ProductService,private _acroute:ActivatedRoute,private _route:Router,private _addtocart:CartService,private _wishlist:WishlistService,public navCtrl: NavController,public toastCtrl:ToastController,private _sort:SortService,public loadingController: LoadingController) { }
@@ -82,7 +90,88 @@ export class ProductpagePage implements OnInit {
           this.productarr=data;
         }
       );
-}
+    }
+    else if(this.category_id==101010){
+      this.pricerange=localStorage.getItem('pricerange');
+      this.widthrange=localStorage.getItem('widthrange');
+      this.heightrange=localStorage.getItem('heightrange');
+      this.depthrange=localStorage.getItem('depthrange');
+      this._product.getAllProducts().subscribe(
+        (data:any)=>{
+                this.productarr=data;
+                // if(this.pricerange=='5000'){
+                  if(this.pricerange!='undefined')
+                  {  
+                    this.filterarr = [];
+                    
+                for(this.i=0;this.i<this.productarr.length;this.i++){
+                      if((this.productarr[this.i].product_price> Number(this.pricerange)) && (this.productarr[this.i].product_price<Number(this.pricerange)+5000)){
+                        this.filterarr.push(this.productarr[this.i]);
+                        
+                    }  
+                    }
+                    this.productarr = this.filterarr;
+                  }
+                  
+                  if(this.widthrange!='undefined'){
+                  this.filterarr = [];
+                   
+                  for(this.i=0;this.i<this.productarr.length;this.i++){
+                   
+                      if((this.productarr[this.i].product_width> Number(this.widthrange)) && (this.productarr[this.i].product_width<Number(this.widthrange)+20)){
+                        this.filterarr.push(this.productarr[this.i]);
+                        
+                    }
+                    }
+                    this.productarr = this.filterarr;
+                  }
+
+
+                  if(this.heightrange!='undefined')
+                  {  
+                    this.filterarr = [];
+                    
+                for(this.i=0;this.i<this.productarr.length;this.i++){
+                  
+                  if((this.productarr[this.i].product_height> Number(this.heightrange)) && (this.productarr[this.i].product_height<Number(this.heightrange)+20)){
+                        this.filterarr.push(this.productarr[this.i]);
+                        
+                    }  
+                    }
+                    this.productarr = this.filterarr;
+                  }
+
+
+                  if(this.depthrange!='undefined')
+                  {  
+                    this.filterarr = [];
+                    
+                for(this.i=0;this.i<this.productarr.length;this.i++){
+                  
+                  if((this.productarr[this.i].product_depth> Number(this.depthrange)) && (this.productarr[this.i].product_depth<Number(this.depthrange)+5)){
+                        this.filterarr.push(this.productarr[this.i]);
+                        
+                    }  
+                    }
+                    this.productarr = this.filterarr;
+                  }
+
+                  if(this.depthrange=='undefined' && this.pricerange=='undefined' && this.heightrange=='undefined' && this.widthrange=='undefined'){
+                    this._product.getAllProducts().subscribe(
+                      (data:any)=>{
+                              this.filterarr=data;
+                              this.productarr=data;
+                      }
+                    );
+                  }
+
+                  this.productarr=this.filterarr;
+                  
+                }
+          // }
+      );
+      //this.checkrange();
+    }
   else{
    
                     this._product.productByCategoryId(this.category_id).subscribe(
@@ -100,6 +189,10 @@ export class ProductpagePage implements OnInit {
                     );
  }
  //ngonInit Ends
+
+  checkrange(){
+        
+  }
 
 
     onClickCategory(){
