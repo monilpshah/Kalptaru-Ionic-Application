@@ -72,7 +72,6 @@ export class ChangePasswordPage implements OnInit {
       message: msg,
       cssClass: "toast-scheme ",
       showCloseButton: true,
-      // closeButtonText: "OK",
       position: 'bottom'
     });
     toast.present();

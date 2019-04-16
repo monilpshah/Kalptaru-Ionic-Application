@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ToastController } from '@ionic/angular';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
+import * as jspdf from 'jspdf';
 
 @Component({
   selector: 'app-my-profile',
@@ -35,6 +36,7 @@ export class MyProfilePage implements OnInit {
       }
     );
   }
+
   onpassword_flag(){
     
     if(this.password_flag==true){
@@ -56,7 +58,25 @@ export class MyProfilePage implements OnInit {
     });
     toast.present();
   }
+  
+  @ViewChild('content') content: ElementRef;
   upadtepage(){
+    let doc = new jspdf();
+
+    let specialElementHandlers = {
+      '#editor': function(element,renderer){
+        return true;
+      }
+    };
+    let content = this.content.nativeElement;
+
+    doc.fromHTML(document.getElementById('content'),15,15,{
+      'width': 190,
+      'elementHandlers' : specialElementHandlers
+    });
+
+    doc.save('test.pdf');
+
     this._route.navigate(['/update-profile']);
   }
 }

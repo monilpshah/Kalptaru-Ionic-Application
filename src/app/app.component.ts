@@ -34,6 +34,11 @@ export class AppComponent {
       icon: 'cart'
     },
     {
+      title: 'My orders',
+      url: '/my-order',
+      icon: 'journal'
+    },
+    {
       title: 'Signup',
       url: '/signup',
       icon: 'list'
@@ -52,6 +57,11 @@ export class AppComponent {
       title: 'Forgot Password',
       url: '/forgot-password',
       icon: 'at'
+    },
+    {
+      title: 'FAQ',
+      url: '/faq',
+      icon: 'help'
     }
   ];
 

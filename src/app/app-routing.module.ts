@@ -37,7 +37,9 @@ const routes: Routes = [
   { path: 'update-profile', loadChildren: './update-profile/update-profile.module#UpdateProfilePageModule' },
   { path: 'change-password', loadChildren: './change-password/change-password.module#ChangePasswordPageModule' },
   { path: 'categorypage', loadChildren: './categorypage/categorypage.module#CategorypagePageModule' },
-  { path: 'filter', loadChildren: './filter/filter.module#FilterPageModule' }
+  { path: 'filter', loadChildren: './filter/filter.module#FilterPageModule' },
+  { path: 'my-order', loadChildren: './my-order/my-order.module#MyOrderPageModule' },
+  { path: 'faq', loadChildren: './faq/faq.module#FAQPageModule' }
 ];
 
 @NgModule({
