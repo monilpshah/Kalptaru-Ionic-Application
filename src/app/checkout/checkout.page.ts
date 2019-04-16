@@ -7,6 +7,8 @@ import { product } from '../classes/product';
 import { deletecart } from '../classes/deletecart';
 import { PaytmService } from '../services/paytm.service';
 import { ToastController } from '@ionic/angular';
+import { changeqty } from '../classes/changeqty';
+
 
 @Component({
   selector: 'app-checkout',
@@ -26,7 +28,7 @@ export class CheckoutPage implements OnInit {
   gst:number=0;
   grandtotal:number=0;
   stflag=0;
-  
+  changeqty:number=1;
   constructor(private _route:Router,private _acroute:ActivatedRoute,private _cart:CartService,private _productDetail:ProductDescriptionService,private _paytm:PaytmService,public toastCtrl: ToastController) { }
 
   ngOnInit() {
@@ -114,5 +116,17 @@ export class CheckoutPage implements OnInit {
       position: 'bottom'
     });
     toast.present();
+  }
+  productPageRouting(product_id){
+    this._route.navigate(['product-description',product_id]);
+  }
+  qtychange(i){
+    // console.log(this.cartarr[i].fk_product_id);
+    this._cart.updateqty(this.changeqty,this.user_name,this.cartarr[i].fk_product_id).subscribe(
+      (data:any)=>{
+        console.log(data);
+
+      }
+    );
   }
 }

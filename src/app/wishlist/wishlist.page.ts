@@ -61,4 +61,7 @@ this.user_email=localStorage.getItem("user_email");
     });
     toast.present();
   }
+  productPageRouting(product_id){
+    this._route.navigate(['product-description',product_id]);
+  }
 }

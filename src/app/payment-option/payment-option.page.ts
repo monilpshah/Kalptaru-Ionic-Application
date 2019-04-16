@@ -13,7 +13,7 @@ import { ToastController } from '@ionic/angular';
 export class PaymentOptionPage implements OnInit {
 
   user_email:string;
-  paymentOption:string;
+  paymentOption:string="";
   emi:number=3;
   emiPrice:number;
   downpayment:number;
@@ -38,25 +38,29 @@ export class PaymentOptionPage implements OnInit {
     //console.log(this.emiPrice);
   } 
   continue(){
-    if(this.paymentOption=="emi"){
+    if(this.paymentOption==""){
+      this.presentToast("Select Option.");
+    }
+    else{
       this._cartservice.upadtePayment(new payment_option(this.paymentOption),this.user_email).subscribe(
         (data:any)=>{
-          alert("Payment updated.");
-          // console.log(this.paymentOption);
+          this.presentToast("Payment Updated");
+          console.log(this.paymentOption);
         }
       );
+      this._route.navigate(["/payment-gateway"]);
     }
     // console.log(this.paymentOption);
-    this._route.navigate(["/payment-gateway"]);
+    
   }
   
   paytm(){
     this._paytm.payment=this.gt;
     window.open('http://localhost:8080/','_self');
   } 
-  async presentToast() {
+  async presentToast(msg) {
     const toast = await this.toastCtrl.create({
-      message: "Login Successful.",
+      message: msg,
       cssClass: "toast-scheme ",
       showCloseButton: true,
       // closeButtonText: "OK",

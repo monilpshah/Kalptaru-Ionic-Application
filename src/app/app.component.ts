@@ -59,6 +59,16 @@ export class AppComponent {
       icon: 'at'
     },
     {
+      title: 'About Us',
+      url: '/about-us',
+      icon: 'information-circle-outline'
+    },
+    {
+      title: 'Contact Us',
+      url: '/contact-us',
+      icon: 'call'
+    },
+    {
       title: 'FAQ',
       url: '/faq',
       icon: 'help'

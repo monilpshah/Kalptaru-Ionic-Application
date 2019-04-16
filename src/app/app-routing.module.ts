@@ -39,7 +39,9 @@ const routes: Routes = [
   { path: 'categorypage', loadChildren: './categorypage/categorypage.module#CategorypagePageModule' },
   { path: 'filter', loadChildren: './filter/filter.module#FilterPageModule' },
   { path: 'my-order', loadChildren: './my-order/my-order.module#MyOrderPageModule' },
-  { path: 'faq', loadChildren: './faq/faq.module#FAQPageModule' }
+  { path: 'faq', loadChildren: './faq/faq.module#FAQPageModule' },
+  { path: 'about-us', loadChildren: './about-us/about-us.module#AboutUsPageModule' },
+  { path: 'contact-us', loadChildren: './contact-us/contact-us.module#ContactUsPageModule' }
 ];
 
 @NgModule({

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { cart } from '../classes/cart';
 import { deletecart } from '../classes/deletecart';
+import { changeqty } from '../classes/changeqty';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,9 @@ import { deletecart } from '../classes/deletecart';
 export class CartService {
 
   private url: string = 'http://localhost:3000/addtocart/';
-  private check: string = 'http://localhost:3000/checkRepeatProduct/'
+  private check: string = 'http://localhost:3000/checkRepeatProduct/';
+  private qty: string = 'http://localhost:3000/changeqty/';
+   
   constructor(private _http:HttpClient) { }
   addtocart(item:cart){
     let body=JSON.stringify(item);
@@ -35,4 +38,10 @@ export class CartService {
     let head1=new HttpHeaders().set('Content-Type','application/json');
     return this._http.put(this.url+user_email,body,{headers:head1});
   }
+  updateqty(item,item1,item2){
+    // console.log("hello");
+    let body=JSON.stringify("");
+    return this._http.put(this.qty+item1+"/"+item+"/"+item2,body);
+  }
+
 }

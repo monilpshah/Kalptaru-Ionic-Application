@@ -28,12 +28,12 @@
       <img src="{{'http://localhost:3000/images/'+ item.product_image}}" alt="{{item.product_name}}">
     </div>
     <div class="product-details">
-      <div class="product-title">{{item.product_name}}</div>
+    <a (click)="productPageRouting(item.product_id)">  <div class="product-title">{{item.product_name}}</div></a>
       <p class="product-description">{{item.product_material}}</p>
     </div>
     <div class="product-price">₹{{item.product_price}}</div>
     <div class="product-quantity">
-      <input type="number" value="{{cartarr[i].qty}}" min="1">
+      <input type="number" value="{{cartarr[i].qty}}" [(ngModel)]="changeqty" min="1" (change)="qtychange(i)">
     </div>
     <div class="product-removal">
       <button class="remove-product" (click)="deletecart(item.product_id,i)">
