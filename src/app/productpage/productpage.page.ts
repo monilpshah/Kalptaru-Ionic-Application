@@ -248,7 +248,7 @@ export class ProductpagePage implements OnInit {
                 }
               );   
     }
-    addToCart(product_id,i){
+    addToCart(product_id,fk_category_id,product_price){
       this._addtocart.checkRepeatProduct(new checkRepeatProduct(product_id,this.user_name)).subscribe(
         (data:any)=>{
           if(data.length==1){
@@ -257,8 +257,9 @@ export class ProductpagePage implements OnInit {
             this._route.navigate(["/checkout"]);
           }
           else {
-            this._addtocart.addtocart(new cart(product_id,this.qty,this.user_name,"CASH")).subscribe(
+            this._addtocart.addtocart(new cart(product_id,this.user_name,"CASH",this.qty,fk_category_id,product_price)).subscribe(
               (data:any)=>{
+                console.log(data);
                 // alert("Successfully added to the cart");
                 this.presentToast("Successfully added to the Cart.");
                 this._route.navigate(["/checkout"]);

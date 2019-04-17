@@ -34,4 +34,8 @@ export class OrderService {
   getOrderDetailsTable(fk_order_id){
     return this._http.get(this.url1+fk_order_id);
   }
+  UpdateProductQtyForOrder(product_id,product_qty){
+    let body=JSON.stringify("");
+    return this._http.put(this.url1+product_id+"/"+product_qty,body);
+  }
 }

@@ -61,7 +61,7 @@
 						{{item.product_name}}
 						</ion-card-title>
 						<ion-card-subtitle > {{item.product_price}}
-								<button  (click)="addToCart(item.product_id)" style="float: right;height: 20px;width:30px;padding-right: 10%;"><ion-icon name="cart" style="float: right;height: 20px;width:30px;padding-right: 10%;"></ion-icon></button>
+								<button  (click)="addToCart(item.product_id,item.fk_category_id,item.product_price)" style="float: right;height: 20px;width:30px;padding-right: 10%;"><ion-icon name="cart" style="float: right;height: 20px;width:30px;padding-right: 10%;"></ion-icon></button>
 								
 						</ion-card-subtitle>					  
 						<ion-icon name="heart-empty" style="float: right;height: 20px;width:30px;padding-right: 10%;" (click)="addToWishlist(item.product_id)"></ion-icon>

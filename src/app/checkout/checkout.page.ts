@@ -125,6 +125,10 @@ export class CheckoutPage implements OnInit {
     this._cart.updateqty(this.changeqty,this.user_name,this.cartarr[i].fk_product_id).subscribe(
       (data:any)=>{
         console.log(data);
+        this.subtotal+=this.cartarr[i].product_price;
+        this.gst=this.subtotal*0.18;
+          this.gst=parseInt(this.gst+"");
+          this.grandtotal=this.subtotal+this.gst;        
 
       }
     );

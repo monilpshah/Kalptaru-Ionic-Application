@@ -4,3 +4,20 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Playfair Display";
   letter-spacing: 5px;
 }
+
+.ios, .md {
+
+  home-page {
+
+    .scroll {
+      height: 100%
+    }
+
+    #map {
+      width: 100%;
+      height: 100%;
+    }
+
+  }
+
+}

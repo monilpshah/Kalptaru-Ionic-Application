@@ -98,7 +98,7 @@ export class ProductDescriptionPage implements OnInit {
           this._route.navigate(["/checkout"]);
         }
         else {
-          this._addtocart.addtocart(new cart(this.product_id,this.qty,this.user_name,"CASH")).subscribe(
+          this._addtocart.addtocart(new cart(this.product_id,this.user_name,"CASH",this.qty,this.productDescriptionarr[0].fk_category_id,this.productDescriptionarr[0].product_price)).subscribe(
             (data:any)=>{
               // alert("Successfully added to the cart");
               this.presentToast("Successfully added to the cart.");
@@ -151,7 +151,7 @@ export class ProductDescriptionPage implements OnInit {
 
   addToCart(product_id){
     //console.log(product_id);
-   this._addtocart.addtocart(new cart(product_id,this.qty,this.user_name,"CASH")).subscribe(
+   this._addtocart.addtocart(new cart(product_id,this.user_name,"CASH",this.qty,this.productDescriptionarr[0].fk_category_id,this.productDescriptionarr[0].product_price)).subscribe(
      (data:any)=>{
       //  console.log(data);
        alert("Successfully added to the cart");
