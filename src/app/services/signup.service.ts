@@ -12,7 +12,7 @@ export class SignupService {
   constructor(private _http:HttpClient) { }
 
   signupaddrecord(item:signup){
-    console.log(item);
+    // console.log(item);
     let body=JSON.stringify(item);
     let head1=new HttpHeaders().set('Content-Type','application/json');
     return this._http.post(this.url,body,{headers:head1});

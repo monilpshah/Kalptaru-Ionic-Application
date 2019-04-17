@@ -11,6 +11,7 @@ import { WishlistService } from '../services/wishlist.service';
 import { wishlist } from '../classes/wishlist';
 import { ToastController } from '@ionic/angular';
 import { deletewishlist } from '../classes/deletewishlist';
+import { productimage } from '../classes/product.image';
 
 @Component({
   selector: 'app-product-description',
@@ -36,7 +37,7 @@ export class ProductDescriptionPage implements OnInit {
   downpayment:number;
   product_price:number;
   rent:number=0;
-
+  image:productimage[]=[];
 
   constructor(private _product:ProductService,private _productDescription:ProductDescriptionService,private _route:Router,private _acroute:ActivatedRoute,private _addtocart:CartService,private _wishlist:WishlistService,public toastCtrl:ToastController) { }
 
@@ -69,7 +70,13 @@ export class ProductDescriptionPage implements OnInit {
                   );
         }
       );
-      //get similar products
+      //get similar images
+      this._product.get_image(this.product_id).subscribe(
+        (data2:any)=>{
+          console.log(data2);
+          this.image=data2;
+        }
+      );
 
       
       

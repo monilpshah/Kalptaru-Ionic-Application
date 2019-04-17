@@ -93,7 +93,14 @@
           <div class="w3ls-form">
             <form action="/" method="post">
               <label>Email</label>
-              <input type="email" placeholder="Email" name="user_email" [(ngModel)]="user_email" required  #user_email_menu="ngModel"><br>
+              <input type="email" placeholder="Email" name="user_email" (change)="ionchange()" [(ngModel)]="user_email" required  #user_email_menu="ngModel"><br>
+
+              <!-- <div [hidden]="user_email_menu.valid || user_email_menu.untouched">
+                <div [hidden]="!user_email_menu?.errors?.required"></div>
+                <mat-error>Email is required*</mat-error>
+            </div> -->
+
+
               <label>Password</label>
               <input type="password" placeholder="Password" name="user_password" [(ngModel)]="user_password" required #user_password_menu="ngModel">
               <label>Name</label>

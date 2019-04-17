@@ -12,17 +12,17 @@
 
 <ion-content padding>   
    <div *ngFor="let item of productDescriptionarr">
-              <ion-card>
+              <ion-card *ngFor="let img of image">
                   <!-- <img src= "{{'http://localhost:3000/images/' + item.product_image}}"/> -->
                   <ion-slides pager="true" [options]="slideOpts">
                       <ion-slide>
                          <img src= "{{'http://localhost:3000/images/' + item.product_image}}" alt="{{item.product_name}}"/>                          
                       </ion-slide>
                       <ion-slide>
-                          <img src= "{{'http://localhost:3000/images/' + item.product_image}}" alt="{{item.product_name}}"/>                          
+                          <img src= "{{'http://localhost:3000/images/' + img.product_image2}}" alt="{{item.product_name}}"/>                          
                        </ion-slide>
                        <ion-slide>
-                          <img src= "{{'http://localhost:3000/images/' + item.product_image}}" alt="{{item.product_name}}"/>                          
+                          <img src= "{{'http://localhost:3000/images/' + img.product_image3}}" alt="{{item.product_name}}"/>                          
                        </ion-slide>
                     </ion-slides>
                   <div class="card-title"></div>
