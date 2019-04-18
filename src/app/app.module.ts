@@ -14,7 +14,7 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
-import { MatCardModule } from '@angular/material/card';
+// import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,8 +25,7 @@ import { MatCardModule } from '@angular/material/card';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    NgxQRCodeModule,
-    MatCardModule
+    NgxQRCodeModule
   ],
   providers: [
     StatusBar,

@@ -10,7 +10,32 @@
   </ion-header>
 
 <ion-content padding>
-
+  <div class="shopping-cart">
+    
+    <div class="column-labels">
+      <label class="product-image">Image</label>
+      <label class="product-details">Product</label>
+      <label class="product-price">Price</label>
+      <label class="product-quantity">Quantity</label>
+      <label class="product-removal">Remove</label>
+      <label class="product-line-price">Total</label>
+    </div>
+  
+    <div class="product" *ngFor="let item of productarr,let i = index">
+      <div class="product-image">
+        <!-- <img src="{{'http://localhost:3000/images/'+ item.product_image}}" alt="{{item.product_name}}"> -->
+        <img src="{{'http://godaddyapi.herokuapp.com/images/'+ item.product_image}}" alt="{{item.product_name}}">
+      </div>
+      <div class="product-details">
+        <a (click)="productPageRouting(item.product_id)"><div class="product-title">{{item.product_name}}</div></a>
+        <p class="product-description">{{item.product_material}}</p>
+      </div>
+      <div class="product-price">{{item.product_price}}</div>
+      <div class="product-quantity">
+        <!-- <input type="number" value="{{cartarr[i].quantity}}" min="1"> -->
+      </div>
+    </div>
+</div>
   
 
 </ion-content>

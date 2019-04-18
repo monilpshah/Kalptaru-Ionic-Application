@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { sendmail } from '../Classes/mail';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { user } from '../Classes/user';
+import { url } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MailService {
-  private forget:string='http://localhost:3000/forget/';
-  private email:string='http://localhost:3000/mail/';
+  private forget:string= url.endpoint + 'forget/';
+  private email:string= url.endpoint + 'mail/';
   constructor(private _http:HttpClient) { }
   getpassById(user_email:string){
     return this._http.get(this.forget+user_email);

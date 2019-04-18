@@ -3,15 +3,16 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { cart } from '../classes/cart';
 import { deletecart } from '../classes/deletecart';
 import { changeqty } from '../classes/changeqty';
+import { url } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
 
-  private url: string = 'http://localhost:3000/addtocart/';
-  private check: string = 'http://localhost:3000/checkRepeatProduct/';
-  private qty: string = 'http://localhost:3000/changeqty/';
+  private url: string =  url.endpoint +'addtocart/';
+  private check: string = url.endpoint + 'checkRepeatProduct/';
+  private qty: string = url.endpoint + 'changeqty/';
    
   constructor(private _http:HttpClient) { }
   addtocart(item:cart){

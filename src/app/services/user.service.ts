@@ -2,14 +2,15 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { user } from '../classes/user';
 import { password } from '../classes/password';
+import { url } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  private url: string = 'http://localhost:3000/user/';
-  private url1: string = 'http://localhost:3000/userPassword/';
+  private url: string = url.endpoint + 'user/';
+  private url1: string = url.endpoint + 'userPassword/';
 
   constructor(private _http:HttpClient) { }
 

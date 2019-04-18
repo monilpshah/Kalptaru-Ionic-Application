@@ -2,14 +2,15 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { wishlist } from '../classes/wishlist';
 import { deletewishlist } from '../classes/deletewishlist';
+import { url } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WishlistService {
 
-  private url: string = 'http://localhost:3000/wishlist/';
-  private check: string = 'http://localhost:3000/checkRepeatWishlist/';
+  private url: string = url.endpoint + 'wishlist/';
+  private check: string = url.endpoint + 'checkRepeatWishlist/';
   constructor(private _http:HttpClient) { }
   addtowishlist(item){
     let body=JSON.stringify(item);

@@ -25,7 +25,8 @@
     
       <div class="product" *ngFor="let item of productdetails,let i = index">
         <div class="product-image">
-          <img src="{{'http://localhost:3000/images/'+ item.product_image}}" alt="{{item.product_name}}">
+          <!-- <img src="{{'http://localhost:3000/images/'+ item.product_image}}" alt="{{item.product_name}}"> -->
+          <img src="{{'http://godaddyapi.herokuapp.com/images/'+ item.product_image}}" alt="{{item.product_name}}">
         </div>
         <div class="product-details">
           <a (click)="productPageRouting(item.product_id)"><div class="product-title">{{item.product_name}}</div></a>

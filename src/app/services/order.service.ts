@@ -3,14 +3,15 @@ import { order } from '../classes/order';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { insertorder } from '../classes/insertorder';
 import { orderdetails } from '../classes/orderdetails';
+import { url } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrderService {
 
-  private url: string = 'http://localhost:3000/ordertable/';
-  private url1: string = 'http://localhost:3000/orderdetailstable/';
+  private url: string = url.endpoint + 'ordertable/';
+  private url1: string = url.endpoint + 'orderdetailstable/';
   constructor(private _http:HttpClient) { }
 
   addtoorder(item:order){

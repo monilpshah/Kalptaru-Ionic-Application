@@ -16,13 +16,16 @@
                   <!-- <img src= "{{'http://localhost:3000/images/' + item.product_image}}"/> -->
                   <ion-slides pager="true" [options]="slideOpts">
                       <ion-slide>
-                         <img src= "{{'http://localhost:3000/images/' + item.product_image}}" alt="{{item.product_name}}"/>                          
+                         <!-- <img src= "{{'http://localhost:3000/images/' + item.product_image}}" alt="{{item.product_name}}"/>                           -->
+                         <img src= "{{'http://godaddyapi.herokuapp.com/images/' + item.product_image}}" alt="{{item.product_name}}"/>                          
                       </ion-slide>
                       <ion-slide>
-                          <img src= "{{'http://localhost:3000/images/' + img.product_image2}}" alt="{{item.product_name}}"/>                          
+                          <!-- <img src= "{{'http://localhost:3000/images/' + img.product_image2}}" alt="{{item.product_name}}"/>                           -->
+                          <img src= "{{'http://godaddyapi.herokuapp.com/images/' + img.product_image2}}" alt="{{item.product_name}}"/>                          
                        </ion-slide>
                        <ion-slide>
-                          <img src= "{{'http://localhost:3000/images/' + img.product_image3}}" alt="{{item.product_name}}"/>                          
+                          <!-- <img src= "{{'http://localhost:3000/images/' + img.product_image3}}" alt="{{item.product_name}}"/>                           -->
+                          <img src= "{{'http://godaddyapi.herokuapp.com/images/' + img.product_image3}}" alt="{{item.product_name}}"/>                          
                        </ion-slide>
                     </ion-slides>
                   <div class="card-title"></div>
@@ -226,7 +229,9 @@
                             <ion-slide *ngFor="let sim of similarproducts">
                                 <div class="card-background-page">
                                     <ion-card >
-                                      <img src= "{{'http://localhost:3000/images/' + sim.product_image}}"/>
+                                      <!-- <img src= "{{'http://localhost:3000/images/' + sim.product_image}}"/> -->
+                                      <img src= "{{'http://godaddyapi.herokuapp.com/images/' + sim.product_image}}"/>
+                                      
                                       <div class="card-title">{{sim.product_name}}</div>
                                       <b><div class="card-subtitle">₹{{sim.product_price}}</div></b>
                                     </ion-card>                                  
