@@ -71,12 +71,12 @@ export class PaymentGatewayPage implements OnInit {
           );
         }
       });
-    
-    
+    this.presentToast("Order Placed.");
+    this._route.navigate(['home']);
   }
-  async presentToast() {
+  async presentToast(msg) {
     const toast = await this.toastCtrl.create({
-      message: "Login Successful.",
+      message: msg,
       cssClass: "toast-scheme ",
       showCloseButton: true,
       // closeButtonText: "OK",

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ToastController } from '@ionic/angular';
 import { UserService } from '../services/user.service';
 import { user } from '../classes/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-update-profile',
@@ -19,7 +20,7 @@ export class UpdateProfilePage implements OnInit {
   user_address:string;
 
   password_flag=true;
-  constructor(public toastCtrl:ToastController,private _user:UserService) { }
+  constructor(public toastCtrl:ToastController,private _user:UserService,private _route:Router) { }
 
   ngOnInit() {
     this.user_email=localStorage.getItem("user_email");
@@ -68,6 +69,7 @@ export class UpdateProfilePage implements OnInit {
           console.log(data);
         }
       );
+      this._route.navigate(['/home']);
   }
   
 }
