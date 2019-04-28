@@ -8,10 +8,10 @@ import { url } from '../../environments/environment';
   providedIn: 'root'
 })
 export class MailService {
-  // private forget:string= url.endpoint + 'forget/';
-  // private email:string= url.endpoint + 'mail/';
-  private forget:string= 'http://localhost:3000/forget/';
-  private email:string=  'http://localhost:3000/mail/';
+  private forget:string= url.endpoint + 'forget/';
+  private email:string= url.endpoint + 'mail/';
+  // private forget:string= 'http://localhost:3000/forget/';
+  // private email:string=  'http://localhost:3000/mail/';
   constructor(private _http:HttpClient) { }
   getpassById(user_email:string){
     return this._http.get(this.forget+user_email);

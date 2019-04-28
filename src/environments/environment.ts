@@ -6,9 +6,9 @@ export const environment = {
   production: false
 };
 export const url = {
-  endpoint : 'http://godaddykalpataru.herokuapp.com/'
+  // endpoint : 'http://godaddykalpataru.herokuapp.com/'
   // endpoint : 'https://freesqlkalpataru.herokuapp.com/'
-  // endpoint : 'http://localhost:3000/'
+  endpoint : 'http://localhost:3000/'
 }
 
 /*

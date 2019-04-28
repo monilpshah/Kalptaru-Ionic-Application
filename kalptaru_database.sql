@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 17, 2019 at 07:10 AM
+-- Generation Time: Apr 28, 2019 at 07:07 AM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -21,28 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `kalptaru_database`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `bill_tbl`
---
-
-CREATE TABLE `bill_tbl` (
-  `bill_id` int(11) NOT NULL,
-  `bill_amount` float NOT NULL,
-  `bill_date` date NOT NULL,
-  `user_id` varchar(20) NOT NULL,
-  `bill_status` varchar(10) NOT NULL,
-  `fk_product_id` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `bill_tbl`
---
-
-INSERT INTO `bill_tbl` (`bill_id`, `bill_amount`, `bill_date`, `user_id`, `bill_status`, `fk_product_id`) VALUES
-(1001, 1000, '2019-01-23', 'bunny@gmail.com', 'Pending', '101');
 
 -- --------------------------------------------------------
 
@@ -66,10 +44,11 @@ CREATE TABLE `cart_tbl` (
 INSERT INTO `cart_tbl` (`fk_product_id`, `qty`, `fk_user_email`, `payment_option`, `fk_category_id`, `product_price`) VALUES
 (114, 1, 'monil31199@gmail.com', 'cod', 106, 22499),
 (115, 1, 'monil31199@gmail.com', 'cod', 106, 9799),
-(114, 1, 'bunny@gmail.com', 'cod', 106, 22499),
-(115, 1, 'bunny@gmail.com', 'cod', 106, 9799),
 (114, 1, 'raj@gmail.com', 'cod', 106, 22499),
-(121, 1, 'raj@gmail.com', 'cod', 104, 73);
+(121, 1, 'raj@gmail.com', 'cod', 104, 73),
+(135, 1, 'bunny@gmail.com', 'cod', 109, 9),
+(114, 1, 'bunny@gmail.com', 'cod', 106, 22499),
+(148, 1, '', 'CASH', 114, 12);
 
 -- --------------------------------------------------------
 
@@ -161,6 +140,30 @@ INSERT INTO `employee_tbl` (`employee_email`, `employee_password`, `employee_nam
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `leave_tbl`
+--
+
+CREATE TABLE `leave_tbl` (
+  `leave_id` int(11) NOT NULL,
+  `fk_employee_email` varchar(64) NOT NULL,
+  `leave_msg` varchar(250) NOT NULL,
+  `leave_days` int(11) NOT NULL,
+  `leave_from_date` date NOT NULL,
+  `leave_status` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `leave_tbl`
+--
+
+INSERT INTO `leave_tbl` (`leave_id`, `fk_employee_email`, `leave_msg`, `leave_days`, `leave_from_date`, `leave_status`) VALUES
+(1, 'shahsmit929@gmail.com', 'ddsfsdfsd', 10, '2019-04-18', 'Accept'),
+(3, 'bunny@gmail.com', 'personal', 15, '2019-04-09', 'Accept'),
+(4, 'shahmonil929@gmail.com', 'marriage', 7, '2019-04-23', 'Pending');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `loan_tbl`
 --
 
@@ -173,18 +176,18 @@ CREATE TABLE `loan_tbl` (
   `loan_status` varchar(30) NOT NULL,
   `loan_reason` varchar(300) NOT NULL,
   `loan_months` int(11) NOT NULL,
-  `rejected_reason` varchar(50) NOT NULL
+  `rejected_reason` varchar(50) NOT NULL,
+  `pay_per_month` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `loan_tbl`
 --
 
-INSERT INTO `loan_tbl` (`loan_id`, `loan_amount`, `fk_employee_email`, `loan_issued_date`, `last_installment_date`, `loan_status`, `loan_reason`, `loan_months`, `rejected_reason`) VALUES
-(1, 500000, 'bunny@gmail.com', '2019-02-13', '2019-02-13', 'accept', 'kai nai', 5, ''),
-(2, 500000, 'bunny@gmail.com', '2019-02-13', '2019-02-13', 'reject', 'kai nai', 5, ''),
-(3, 500000, 'bunny@gmail.com', '2019-02-13', '2019-02-13', 'reject', 'kai nai', 5, ''),
-(28, 10000, 'shahsmit929@gmail.com', '2019-02-26', '2019-02-26', 'reject', 'sdfewg', 8, '');
+INSERT INTO `loan_tbl` (`loan_id`, `loan_amount`, `fk_employee_email`, `loan_issued_date`, `last_installment_date`, `loan_status`, `loan_reason`, `loan_months`, `rejected_reason`, `pay_per_month`) VALUES
+(1, 500000, 'bunny@gmail.com', '2019-02-13', '2019-02-13', 'accept', 'kai nai', 5, '', 0),
+(2, 500000, 'bunny@gmail.com', '2019-02-13', '2019-02-13', 'reject', 'kai nai', 5, '', 0),
+(29, 10000, 'shahsmit929@gmail.com', '2019-04-23', '2019-04-23', 'Pending', 'marraige', 12, '', 850);
 
 -- --------------------------------------------------------
 
@@ -206,31 +209,12 @@ CREATE TABLE `order_details_tbl` (
 --
 
 INSERT INTO `order_details_tbl` (`order_details_id`, `fk_order_id`, `fk_product_id`, `fk_category_id`, `fk_product_price`, `qty`) VALUES
-(567, 1001, 101, 50000, 10, 0),
-(568, 1016, 101, 50000, 10, 0),
-(569, 1075, 114, 106, 22499, 1),
-(570, 1076, 114, 106, 22499, 1),
-(571, 1079, 114, 106, 22499, 2),
-(572, 1098, 114, 106, 22499, 1),
-(573, 1098, 115, 106, 9799, 1),
-(574, 1098, 114, 106, 22499, 1),
-(575, 1098, 115, 106, 9799, 1),
-(576, 1099, 114, 106, 22499, 1),
-(577, 1099, 115, 106, 9799, 1),
-(578, 1100, 114, 106, 22499, 1),
-(579, 1100, 115, 106, 9799, 1),
-(580, 1101, 114, 106, 22499, 1),
-(581, 1101, 121, 104, 73, 1),
-(582, 1102, 114, 106, 22499, 1),
-(583, 1102, 121, 104, 73, 1),
-(584, 1103, 114, 106, 22499, 1),
-(585, 1103, 121, 104, 73, 1),
-(586, 1104, 114, 106, 22499, 1),
-(587, 1104, 121, 104, 73, 1),
-(588, 1105, 114, 106, 22499, 1),
-(589, 1105, 121, 104, 73, 1),
-(590, 1106, 114, 106, 22499, 1),
-(591, 1106, 121, 104, 73, 1);
+(592, 1107, 135, 109, 9, 1),
+(593, 1107, 114, 106, 22499, 1),
+(594, 1108, 135, 109, 9, 1),
+(595, 1108, 114, 106, 22499, 1),
+(596, 1109, 135, 109, 9, 1),
+(597, 1109, 114, 106, 22499, 1);
 
 -- --------------------------------------------------------
 
@@ -252,31 +236,9 @@ CREATE TABLE `order_tbl` (
 --
 
 INSERT INTO `order_tbl` (`order_id`, `order_date`, `order_amount`, `fk_user_email`, `delievery_assign`, `order_status`) VALUES
-(1001, '2018-10-09', 10000, 'bunny@gmail.com', 'delievery@gmail.com', 3),
-(1002, '2018-10-08', 10000, 'raj@gmail.com', '', 1),
-(1004, '2019-04-03', 10000, 'bunny@gmail.com', '', 1),
-(1015, '2019-04-03', 0, 'bunny@gmail.com', '', 1),
-(1077, '0000-00-00', 71, 'bunny@gmail.com', ' ', 1),
-(1078, '0000-00-00', 71, 'bunny@gmail.com', ' ', 1),
-(1088, '0000-00-00', 64660, 'monil31199@gmail.com', ' ', 1),
-(1089, '0000-00-00', 64660, 'monil31199@gmail.com', ' ', 1),
-(1090, '0000-00-00', 64660, 'monil31199@gmail.com', ' ', 1),
-(1091, '0000-00-00', 64660, 'monil31199@gmail.com', ' ', 1),
-(1092, '0000-00-00', 64660, 'monil31199@gmail.com', ' ', 1),
-(1093, '0000-00-00', 64660, 'monil31199@gmail.com', ' ', 1),
-(1094, '0000-00-00', 64660, 'monil31199@gmail.com', ' ', 1),
-(1095, '0000-00-00', 64660, 'monil31199@gmail.com', ' ', 1),
-(1096, '0000-00-00', 64660, 'monil31199@gmail.com', ' ', 1),
-(1097, '0000-00-00', 64660, 'monil31199@gmail.com', ' ', 1),
-(1098, '0000-00-00', 38111, 'monil31199@gmail.com', ' ', 1),
-(1099, '0000-00-00', 38111, 'monil31199@gmail.com', ' ', 1),
-(1100, '0000-00-00', 38111, 'bunny@gmail.com', ' ', 1),
-(1101, '0000-00-00', 26634, 'raj@gmail.com', ' ', 1),
-(1102, '0000-00-00', 26634, 'raj@gmail.com', ' ', 1),
-(1103, '0000-00-00', 26634, 'raj@gmail.com', ' ', 1),
-(1104, '0000-00-00', 26634, 'raj@gmail.com', ' ', 1),
-(1105, '0000-00-00', 26634, 'raj@gmail.com', ' ', 1),
-(1106, '0000-00-00', 26634, 'raj@gmail.com', ' ', 1);
+(1107, '0000-00-00', 26559, 'bunny@gmail.com', NULL, 2),
+(1108, '0000-00-00', 26559, 'bunny@gmail.com', ' ', 1),
+(1109, '0000-00-00', 26559, 'bunny@gmail.com', ' ', 1);
 
 -- --------------------------------------------------------
 
@@ -329,7 +291,9 @@ INSERT INTO `product_image_tbl` (`fk_product_id`, `product_image2`, `product_ima
 (145, 'product_image-1552840711783.jpg', 'product_image-1552840711783.jpg'),
 (146, 'product_image-1552840889866.jpg', 'product_image-1552840889866.jpg'),
 (147, 'product_image-1552841147195.jpg', 'product_image-1552841147195.jpg'),
-(148, 'product_image-1552841396344.jpg', 'product_image-1552841396344.jpg');
+(148, 'product_image-1552841396344.jpg', 'product_image-1552841396344.jpg'),
+(149, 'product_image-1555907578330.png', 'product_image-1555907578330.png'),
+(150, 'product_image-1556255274292.jpg', 'product_image-1556255274292.jpg');
 
 -- --------------------------------------------------------
 
@@ -360,7 +324,7 @@ CREATE TABLE `product_tbl` (
 --
 
 INSERT INTO `product_tbl` (`product_id`, `product_name`, `fk_category_id`, `product_price`, `product_colour`, `product_image`, `product_weight`, `product_warranty`, `product_material`, `product_Roomtype`, `product_height`, `product_width`, `product_depth`, `product_qty`, `product_offer`) VALUES
-(114, 'Elton Arm Chair in B', 106, 22499, 'BLUE', 'product_image-1552813760858.jpg', 10.5, 36, 'FABRIC', 'LIVING ROOM', 37, 25, 23, 7, '10'),
+(114, 'Elton Arm Chair in B', 106, 22499, 'BLUE', 'product_image-1552813760858.jpg', 10.5, 36, 'FABRIC', 'LIVING ROOM', 37, 25, 23, 4, '10'),
 (115, 'New Manchster Rocking Chair with Cushion in Dark Green Colour', 106, 9799, 'DARK GREEN', 'product_image-1552814041965.jpg', 6, 12, 'FABRIC', 'LIVING ROOM', 36, 35, 27, 10, '10'),
 (116, 'Cecelia Wing Chair in Purple Colour', 106, 26, 'PURPLE', 'product_image-1552814208272.jpg', 23, 12, 'FABRIC', 'LIVING ROOM ', 43, 28, 34, 10, '10'),
 (117, 'Ekati Metal Chair in Blue Colour', 106, 4, 'BLUE', 'product_image-1552814335256.jpg', 5.28, 36, 'METAL', 'LIVING ROOM', 34, 18, 18, 10, '10'),
@@ -381,7 +345,7 @@ INSERT INTO `product_tbl` (`product_id`, `product_name`, `fk_category_id`, `prod
 (132, 'Segur Solid Wood Bar Stool in Provincial Teak', 108, 4, 'PROVINCIAL TEAK', 'product_image-1552817231119.jpg', 15, 36, 'SHEESHAM WOOD', 'BAR', 30, 18, 18, 10, '10'),
 (133, 'Rajasthani Cute Li\'l Damroo', 108, 1, '-------------', 'product_image-1552817463887.jpg', 0.5, 0, 'SILICON RUBBER', 'LIVING ROOM', 9, 11, 11, 10, '10'),
 (134, 'Tiber Solid Wood Display Unit in Premium Acacia', 109, 41, 'PREMIUM ACACIA', 'product_image-1552817758119.jpg', 40, 36, 'ACACIA WOOD', 'LIVING ROOM', 71, 25, 17, 10, '10'),
-(135, 'Orafu Display Unit with Book Shelves cum Study Desk in White', 109, 9, 'WHITE', 'product_image-1552817910984.jpg', 17.1, 12, 'ENGINEERED WOOD', 'STUDY ROOM', 71, 25, 18, 10, '10'),
+(135, 'Orafu Display Unit with Book Shelves cum Study Desk in White', 109, 9, 'WHITE', 'product_image-1552817910984.jpg', 17.1, 12, 'ENGINEERED WOOD', 'STUDY ROOM', 71, 25, 18, 7, '10'),
 (136, 'Provencal Solid Wood Display Unit cum Book Shelf in White', 109, 25, 'WHITE', 'product_image-1552818107393.jpg', 7.5, 36, 'MANGO WOOD', 'LIVING ROOM', 45, 35, 15, 10, '10'),
 (137, 'Display Unit cum Book Shelf in Gold color', 109, 21, 'GOLD', 'product_image-1552818325607.jpg', 0, 6, 'METAL', 'STUDY ROOM', 76, 32, 13, 10, '10'),
 (138, 'Avilys Solid Wood Multi-Purpose Storage Cabinet in Provincial Teak', 110, 28, 'PROVINCIAL TEAK', 'product_image-1552818571771.jpg', 20, 36, 'SHEESHAM WOOD', 'DINING ROOM', 28, 47, 17, 10, '10'),
@@ -394,7 +358,9 @@ INSERT INTO `product_tbl` (`product_id`, `product_name`, `fk_category_id`, `prod
 (145, 'Segur Solid Wood Coffee Table in Provincial Teak', 112, 13, 'PROVINCIAL TEAK', 'product_image-1552840711783.jpg', 45.9, 36, 'SHEESHAM WOOD', 'LIVING ROOM', 14, 34, 34, 10, '10'),
 (146, 'Ogechi Coffee Table in Vermont', 112, 5, '---------', 'product_image-1552840889866.jpg', 20, 36, 'ENGINEERED WOOD', '------------', 16, 36, 20, 10, '10'),
 (147, 'Kosmo Weave Queen Size Bed in Vermount', 113, 17, 'VERMOUNT', 'product_image-1552841147195.jpg', 90, 36, 'ENGINEERED WOOD', 'BEDROOM', 37, 64, 83, 10, '10'),
-(148, 'Kosmo Crescent Two Door Wardrobe with Mirror in Dark Acacia', 114, 12, 'ACACIA DARK', 'product_image-1552841396344.jpg', 65, 36, 'ENGINEERED WOOD', 'BEDROOM', 71, 32, 19, 10, '10');
+(148, 'Kosmo Crescent Two Door Wardrobe with Mirror in Dark Acacia', 114, 12, 'ACACIA DARK', 'product_image-1552841396344.jpg', 65, 36, 'ENGINEERED WOOD', 'BEDROOM', 71, 32, 19, 10, '10'),
+(149, 'Plastic chair', 106, 10000, 'black', 'product_image-1555907578116.png', 1, 1, 'Plastic black chair', 'leaving', 1, 1, 1, 100, '100'),
+(150, 'tables table', 108, 10000, 'black', 'product_image-1556255273068.jpg', 10, 10, '10', 'leaving', 10, 10, 10, 10, '10');
 
 -- --------------------------------------------------------
 
@@ -421,18 +387,19 @@ CREATE TABLE `user_tbl` (
   `user_mobileno` double NOT NULL,
   `user_city` varchar(20) NOT NULL,
   `user_gender` varchar(7) NOT NULL,
-  `user_address` varchar(100) NOT NULL,
-  `user_type` int(11) NOT NULL
+  `user_address` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user_tbl`
 --
 
-INSERT INTO `user_tbl` (`user_email`, `user_password`, `user_name`, `user_mobileno`, `user_city`, `user_gender`, `user_address`, `user_type`) VALUES
-('bunny@gmail.com', 'bunnydon', 'bunny', 94096485853, 'abad', 'male', '', 1),
-('monil31199@gmail.com', 'monu', 'bunny', 94096485853, 'abad', 'male', '', 1),
-('raj@gmail.com', 'raj123', 'rajbhai', 8866697028, 'abad', 'male', 'thaltej', 1);
+INSERT INTO `user_tbl` (`user_email`, `user_password`, `user_name`, `user_mobileno`, `user_city`, `user_gender`, `user_address`) VALUES
+('bunny@gmail.com', 'bunnydon', 'bunny', 94096485853, 'abad', 'male', ''),
+('mom@gmail.com', 'mom', '', 0, '', 'Female', ''),
+('monil31199@gmail.com', 'monu', 'bunny', 94096485853, 'Ahmedabad', 'male', 'B-5/56,Krishna Estate Flats,Krishnanagar road,Saijpur Bogha\nAhmedabad'),
+('mummy@gmail.com', 'mom', '', 0, '', 'Female', ''),
+('raj@gmail.com', 'raj123', 'rajbhai', 8866697028, 'abad', 'male', 'thaltej');
 
 -- --------------------------------------------------------
 
@@ -458,12 +425,6 @@ INSERT INTO `wishlist_tbl` (`fk_product_id`, `fk_user_email`) VALUES
 --
 
 --
--- Indexes for table `bill_tbl`
---
-ALTER TABLE `bill_tbl`
-  ADD PRIMARY KEY (`bill_id`);
-
---
 -- Indexes for table `category_tbl`
 --
 ALTER TABLE `category_tbl`
@@ -480,6 +441,12 @@ ALTER TABLE `colour_tbl`
 --
 ALTER TABLE `employee_tbl`
   ADD PRIMARY KEY (`employee_email`);
+
+--
+-- Indexes for table `leave_tbl`
+--
+ALTER TABLE `leave_tbl`
+  ADD PRIMARY KEY (`leave_id`);
 
 --
 -- Indexes for table `loan_tbl`
@@ -522,12 +489,6 @@ ALTER TABLE `user_tbl`
 --
 
 --
--- AUTO_INCREMENT for table `bill_tbl`
---
-ALTER TABLE `bill_tbl`
-  MODIFY `bill_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1002;
-
---
 -- AUTO_INCREMENT for table `category_tbl`
 --
 ALTER TABLE `category_tbl`
@@ -540,34 +501,40 @@ ALTER TABLE `colour_tbl`
   MODIFY `colour_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `leave_tbl`
+--
+ALTER TABLE `leave_tbl`
+  MODIFY `leave_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `loan_tbl`
 --
 ALTER TABLE `loan_tbl`
-  MODIFY `loan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `loan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `order_details_tbl`
 --
 ALTER TABLE `order_details_tbl`
-  MODIFY `order_details_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=592;
+  MODIFY `order_details_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=598;
 
 --
 -- AUTO_INCREMENT for table `order_tbl`
 --
 ALTER TABLE `order_tbl`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1107;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1110;
 
 --
 -- AUTO_INCREMENT for table `product_image_tbl`
 --
 ALTER TABLE `product_image_tbl`
-  MODIFY `fk_product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=149;
+  MODIFY `fk_product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=151;
 
 --
 -- AUTO_INCREMENT for table `product_tbl`
 --
 ALTER TABLE `product_tbl`
-  MODIFY `product_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=149;
+  MODIFY `product_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=151;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
